@@ -1,26 +1,99 @@
 @import "tailwindcss";
 
+@theme {
+  --color-warm-white: #F7F8F5;
+  --color-pure-white: #FFFFFF;
+  --color-charcoal: #0B0D0C;
+  --color-forest: #063B20;
+  --color-muted-grey: #66706A;
+  --color-light-border: #E5E8E5;
+  --color-ds-green: #19B83A;
+  --color-ds-green-hover: #159E32;
+  --color-ds-green-dark: #0F7824;
+  --color-ds-green-subtle: #EDF9EF;
+
+  /* Legacy mappings to preserve compatibility with untouched subpage badges */
+  --color-navy: #063B20;
+  --color-muted-slate: #66706A;
+  --color-border-subtle: #E5E8E5;
+  --color-bronze: #19B83A;
+  --color-bronze-hover: #159E32;
+  --color-bronze-surface: #EDF9EF;
+  --color-bronze-dark: #063B20;
+
+  --font-sans: var(--font-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-serif: var(--font-serif), Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #F7F8F5;
+  --foreground: #0B0D0C;
+  --brand-green: #19B83A;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Custom Base Rules */
+html {
+  background-color: #F7F8F5;
+  color: #0B0D0C;
+  font-family: var(--font-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  background-color: #F7F8F5;
+  color: #0B0D0C;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* Brand Accent Selection */
+::selection {
+  background-color: #19B83A;
+  color: #FFFFFF;
+}
+
+/* Lenis Smooth Scroll Configuration */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Reduced Motion Safety */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Accessible focus styling */
+:focus-visible {
+  outline: 2px solid #19B83A;
+  outline-offset: 3px;
 }
