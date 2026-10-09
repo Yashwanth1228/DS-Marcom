@@ -196,7 +196,7 @@ export const projects = [
     ],
 
     heroImage: {
-      url: "https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?q=80&w=1600&auto=format&fit=crop",
+      url: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1600&auto=format&fit=crop",
       alt: "Completed residential architecture by DS Marcom",
       isPlaceholder: true,
       note: "Replace with authentic Royal Homes photography.",

@@ -31,7 +31,7 @@ export default function LocationsShell() {
   ];
 
   return (
-    <section className="py-20 sm:py-28 bg-[#FAFAF8] border-t border-[#E7E5E0]">
+    <section className="py-20 sm:py-28 bg-white border-b border-[#E7E5E0]">
       <Container>
         <SectionHeading
           eyebrow="Strategic Geography"
@@ -44,7 +44,7 @@ export default function LocationsShell() {
           {locations.map((loc, idx) => (
             <div
               key={idx}
-              className="bg-white p-6 sm:p-7 border border-[#E7E5E0] hover:border-[#17191C]/30 transition-all flex flex-col justify-between"
+              className="bg-[#FAFAF8] p-6 sm:p-7 border border-[#E7E5E0] hover:border-[#17191C]/30 transition-all flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
