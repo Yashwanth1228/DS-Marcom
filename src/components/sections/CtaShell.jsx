@@ -1,74 +1,71 @@
+"use client";
+
 import Link from "next/link";
-import { ArrowUpRight, Phone, MapPin, Clock } from "lucide-react";
-import Container from "@/components/ui/Container";
-import Button from "@/components/ui/Button";
-import { siteConfig } from "@/data/site";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
 
 export default function CtaShell() {
   return (
-    <section className="py-20 sm:py-24 bg-[#0B0D0C] text-white relative overflow-hidden">
-      {/* Restrained architectural background grid pattern */}
-      <div
-        className="absolute inset-0 opacity-5 pointer-events-none"
-        style={{
-          backgroundImage: "radial-gradient(#FFFFFF 1px, transparent 1px)",
-          backgroundSize: "32px 32px",
-        }}
-        aria-hidden="true"
-      />
+    <section className="relative bg-[#F8F9FA] py-8 sm:py-10 lg:py-12 overflow-hidden">
+      {/* Subtle organic background wave contours matching reference */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
+        <div className="absolute -bottom-24 -left-20 w-[550px] h-[550px] rounded-full bg-emerald-500/5 blur-3xl" />
+        <div className="absolute -top-24 -right-20 w-[550px] h-[550px] rounded-full bg-slate-200/40 blur-3xl" />
+        <svg
+          className="absolute bottom-0 left-0 right-0 w-full h-20 text-[#F9FAF8] fill-current opacity-70"
+          viewBox="0 0 1440 80"
+          preserveAspectRatio="none"
+        >
+          <path d="M0,24L80,32C160,40,320,56,480,60C640,64,800,56,960,44C1120,32,1280,16,1360,8L1440,0L1440,80L1360,80C1280,80,1120,80,960,80C800,80,640,80,480,80C320,80,160,80,80,80L0,80Z" />
+        </svg>
+      </div>
 
-      <Container size="narrow">
-        <div className="relative text-center flex flex-col items-center space-y-6">
-          <span className="text-xs font-semibold uppercase tracking-widest text-[#B58A4A]">
-            Advisory Desk & Site Inquiries
-          </span>
-
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white leading-tight max-w-2xl">
-            Ready to Discuss Your Next Property Opportunity in Bangalore?
-          </h2>
-
-          <p className="text-sm sm:text-base text-[#94A3B8] max-w-xl leading-relaxed">
-            Connect directly with DS Marcom to arrange private site visits, review available Pahani/RTC records, or discuss plotted layouts across Bangalore&apos;s growth corridors.
-          </p>
-
-          <div className="flex flex-col sm:flex-row items-center gap-4 pt-4 w-full sm:w-auto">
-            <Button href="/contact" size="lg" variant="bronze" className="w-full sm:w-auto">
-              <span>Schedule a Site Visit</span>
-              <ArrowUpRight className="w-4 h-4 ml-2" />
-            </Button>
-
-            <Button
-              href="/properties"
-              size="lg"
-              variant="outline"
-              className="w-full sm:w-auto text-white border-white/20 hover:bg-white/10 hover:border-white/40"
-            >
-              <span>Explore All Properties</span>
-            </Button>
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Floating Centered CTA Card - wider lateral space, compact viewport height */}
+        <div
+          className="relative mx-auto w-full rounded-2xl sm:rounded-3xl lg:rounded-[32px] overflow-hidden shadow-2xl shadow-slate-900/15 border border-slate-200/70 group"
+        >
+          {/* Background Handshake / Partnership Image */}
+          <div className="absolute inset-0">
+            <Image
+              src="/images/cta/handshake-partnership.jpg"
+              alt="DS MARCOM Real Estate Partnership Handshake"
+              fill
+              sizes="(max-width: 1280px) 100vw, 1280px"
+              className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-102"
+              priority={false}
+            />
+            {/* Lighter, subtle cinematic tint matching user reference image */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/30 to-black/40 backdrop-blur-[0.5px]" />
           </div>
 
-          {/* Factual Office & Contact Trust Bar */}
-          <div className="pt-10 mt-8 border-t border-white/10 w-full grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs text-[#94A3B8]">
-            <a
-              href={`tel:${siteConfig.contact.phoneTel}`}
-              className="flex items-center justify-center space-x-2 hover:text-white transition-colors"
-            >
-              <Phone className="w-3.5 h-3.5 text-[#B58A4A] shrink-0" />
-              <span>{siteConfig.contact.phoneDisplay}</span>
-            </a>
+          {/* Card Content: Compact, clean, centered matching reference image */}
+          <div className="relative z-10 px-6 py-10 sm:px-12 sm:py-14 md:py-16 text-center flex flex-col items-center">
+            {/* Bold Headline matching user reference */}
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[44px] font-bold tracking-tight text-white leading-tight max-w-3xl text-balance">
+              Push your property journey to next level.
+            </h2>
 
-            <div className="flex items-center justify-center space-x-2">
-              <MapPin className="w-3.5 h-3.5 text-[#B58A4A] shrink-0" />
-              <span>Kengeri Satellite Town, Bengaluru</span>
-            </div>
+            {/* Concise Supporting Description */}
+            <p className="mt-3 sm:mt-4 text-xs sm:text-sm md:text-base text-white/90 max-w-xl leading-relaxed">
+              End-to-end title vetting, plotted layout curation, and on-ground property advisory
+              in a single trusted solution. Meet the right partner to help realize your vision.
+            </p>
 
-            <div className="flex items-center justify-center space-x-2">
-              <Clock className="w-3.5 h-3.5 text-[#B58A4A] shrink-0" />
-              <span>{siteConfig.contact.businessHours} (Mon – Sat)</span>
+            {/* Single Centered Pill Button matching reference image */}
+            <div className="mt-6 sm:mt-7">
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center px-8 sm:px-10 py-3 sm:py-3.5 rounded-full text-sm sm:text-base font-semibold text-white bg-[#FF6543] hover:bg-[#F05533] active:scale-95 shadow-lg shadow-[#FF6543]/35 hover:shadow-[#FF6543]/50 transition-all duration-200"
+              >
+                <span>Get Started</span>
+              </Link>
             </div>
           </div>
         </div>
-      </Container>
+      </div>
     </section>
   );
 }
+

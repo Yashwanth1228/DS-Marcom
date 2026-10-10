@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 export default function SectionHeading({
@@ -13,7 +16,11 @@ export default function SectionHeading({
   const isCentered = align === "center";
 
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0, y: 25 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
       className={cn(
         "flex flex-col space-y-3",
         isCentered ? "items-center text-center" : "items-start text-left",
@@ -23,7 +30,7 @@ export default function SectionHeading({
       {eyebrow && (
         <span
           className={cn(
-            "text-xs font-semibold uppercase tracking-widest text-[#B58A4A]",
+            "text-xs font-bold uppercase tracking-[0.2em] text-[#0F7824]",
             eyebrowClassName
           )}
         >
@@ -33,7 +40,7 @@ export default function SectionHeading({
       {title && (
         <h2
           className={cn(
-            "text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-[#17191C] text-balance",
+            "font-display text-2xl sm:text-3xl lg:text-[40px] font-normal tracking-[-0.015em] text-[#0B0D0C] text-balance leading-tight",
             titleClassName
           )}
         >
@@ -43,13 +50,14 @@ export default function SectionHeading({
       {description && (
         <p
           className={cn(
-            "text-base sm:text-lg text-[#64748B] leading-relaxed max-w-2xl text-pretty",
+            "text-base sm:text-lg text-[#4F5B52] leading-relaxed max-w-2xl text-pretty",
             descriptionClassName
           )}
         >
           {description}
         </p>
       )}
-    </div>
+    </motion.div>
   );
 }
+

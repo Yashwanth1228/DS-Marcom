@@ -12,12 +12,12 @@ export const metadata = {
 
 const galleryItems = [
   {
-    title: "Nagaraju Farm - Landscape & Plots",
+    title: "Residential Plotted Layouts",
     location: "Near Kumbalgodu, Mysore Road",
-    category: "Farm Plots",
-    url: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1400&auto=format&fit=crop",
+    category: "Villa Plots",
+    url: "/images/approach/stage1-explore-plots.jpg",
     aspect: "col-span-12 md:col-span-8 aspect-[16/10]",
-    isPlaceholder: true,
+    isPlaceholder: false,
   },
   {
     title: "Weekend Retreat Architecture",
@@ -36,12 +36,12 @@ const galleryItems = [
     isPlaceholder: true,
   },
   {
-    title: "Organic Farm Living Concept",
+    title: "Master Planned Plotted Enclave",
     location: "South-West Bengaluru",
-    category: "Agrarian Plots",
-    url: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=1400&auto=format&fit=crop",
+    category: "Plotted Enclave",
+    url: "/images/about/about-development.jpg",
     aspect: "col-span-12 md:col-span-8 aspect-[16/10]",
-    isPlaceholder: true,
+    isPlaceholder: false,
   },
   {
     title: "Royal Homes - Delivered Living",
@@ -75,7 +75,7 @@ export default function GalleryPage() {
               Editorial Perspectives & Landscapes.
             </h1>
             <p className="mt-4 text-base sm:text-lg text-[#64748B] leading-relaxed">
-              Visual impressions and contextual imagery spanning DS Marcom&apos;s plotted layouts, farm plots, and Bangalore suburban environments.
+              Visual impressions and contextual imagery spanning DS Marcom&apos;s plotted layouts, villa plots, and Bangalore suburban environments.
             </p>
           </div>
         </Container>

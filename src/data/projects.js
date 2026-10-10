@@ -8,16 +8,16 @@ export const projects = [
   {
     slug: "nagaraju-farm",
     name: "Nagaraju Farm",
-    tagline: "Premium farm plots and weekend villas near Mysore Road, Bengaluru.",
+    tagline: "Premium residential villa plots near Mysore Road, Bengaluru.",
     status: "On Going",
-    category: "Farm Plots & Villas",
+    category: "Residential Villa Plots",
     featured: true,
     location: "Near Kumbalgodu, Mysore Road, Bengaluru",
     region: "Mysore Road / Kumbalgodu",
     shortDescription:
-      "A serene plotted retreat designed for organic farming and weekend villas, strategically situated approximately 6 km from the Bengaluru-Mysore Highway.",
+      "A serene plotted residential enclave designed for independent villas, strategically situated approximately 6 km from the Bengaluru-Mysore Highway.",
     description:
-      "Nagaraju Farm presents a strategic opportunity to own ready-to-build farm plots and weekend villas nestled in the verdant outskirts of South-West Bengaluru. Positioned near Kumbalgodu, the project blends tranquil rural ambiance with effortless city connectivity. Existing project information highlights individual Pahani and RTC documentation, readiness for organic farming, and immediate construction viability.",
+      "Nagaraju Farm presents a strategic opportunity to own ready-to-build residential villa plots nestled in the high-growth corridor of South-West Bengaluru. Positioned near Kumbalgodu, the project blends tranquil living with effortless city connectivity. Existing project information highlights demarcated residential plots, verified documentation, and immediate construction viability.",
     
     // Verified Highlights based strictly on company disclosures
     highlights: [
@@ -34,8 +34,8 @@ export const projects = [
         description: "Curated environment suitable for tranquil weekend homes and retreats.",
       },
       {
-        title: "Organic Farming",
-        description: "Suitable soil and peaceful setting ideal for sustainable organic farming.",
+        title: "Spacious Villa Enclaves",
+        description: "Demarcated plot layouts ideal for spacious independent home and villa construction.",
       },
       {
         title: "Documentation",
@@ -62,8 +62,8 @@ export const projects = [
         answer: "Existing project information mentions individual Pahani and RTC documents.",
       },
       {
-        question: "Is farming allowed?",
-        answer: "Existing project information states that the plots are suitable for organic farming.",
+        question: "Are the plots suitable for villa construction?",
+        answer: "Existing project information highlights readiness for immediate villa construction and peaceful residential living.",
       },
       {
         question: "Can the property be used for a weekend villa?",
@@ -71,18 +71,17 @@ export const projects = [
       },
     ],
 
-    // Imagery placeholder metadata clearly marked for direct replacement
+    // Real estate imagery
     heroImage: {
-      url: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1600&auto=format&fit=crop",
-      alt: "Lush green farmland and landscape near Bengaluru outskirts",
-      isPlaceholder: true,
-      note: "Replace with authentic Nagaraju Farm site photography when provided.",
+      url: "/images/approach/stage1-explore-plots.jpg",
+      alt: "Master-planned residential plotted layout near Kumbalgodu Bangalore",
+      isPlaceholder: false,
     },
     gallery: [
       {
-        url: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1200&auto=format&fit=crop",
-        alt: "Open green plots and landscape",
-        isPlaceholder: true,
+        url: "/images/about/about-development.jpg",
+        alt: "Modern plotted villa development in Bangalore",
+        isPlaceholder: false,
       },
       {
         url: "https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=1200&auto=format&fit=crop",
@@ -90,8 +89,8 @@ export const projects = [
         isPlaceholder: true,
       },
       {
-        url: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=1200&auto=format&fit=crop",
-        alt: "Serene garden and agricultural landscape",
+        url: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&auto=format&fit=crop",
+        alt: "Plotted community layout and avenue roads",
         isPlaceholder: true,
       },
     ],

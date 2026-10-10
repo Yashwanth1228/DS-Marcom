@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { ArrowUpRight, MapPin, CheckCircle2 } from "lucide-react";
 import Container from "@/components/ui/Container";
 import Badge from "@/components/ui/Badge";
@@ -20,39 +21,54 @@ export default function FeaturedProjectsShell() {
   };
 
   return (
-    <section className="py-6 sm:py-10 bg-[#EFF2F6] border-b border-[#E2E8F0] overflow-hidden">
+    <section className="py-8 sm:py-12 bg-[#EFF2F6] border-b border-[#E2E8F0] overflow-hidden">
       <Container size="wide">
         {/* Outer wrapper has padding so cards never touch or exceed display visibility */}
         <div className="relative w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
           {/* ========================================================= */}
-          {/* 1. RADIANT BLUE BACKGROUND PANEL                          */}
+          {/* 1. RADIANT BLUE BACKGROUND PANEL WITH MOTION ENTRANCE     */}
           {/* Compact vertical scale so entire section fits in 1 screen */}
           {/* Static blue canvas that NEVER resizes or shifts on hover  */}
           {/* ========================================================= */}
-          <div className="relative w-full max-w-[800px] lg:max-w-[850px] mx-auto rounded-[28px] sm:rounded-[36px] bg-gradient-to-b from-[#4A96F8] to-[#3079E5] text-white shadow-[0_20px_50px_-15px_rgba(59,130,246,0.35)] pt-6 sm:pt-8 pb-7 sm:pb-8 px-4 sm:px-6 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 35, scale: 0.98 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
+            className="relative w-full max-w-[800px] lg:max-w-[850px] mx-auto rounded-[28px] sm:rounded-[36px] bg-gradient-to-b from-[#4A96F8] to-[#3079E5] text-white shadow-[0_20px_50px_-15px_rgba(59,130,246,0.35)] pt-6 sm:pt-8 pb-7 sm:pb-8 px-4 sm:px-6 text-center"
+          >
             {/* Subtle soft radial lighting highlight on top */}
             <div
               className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_15%,_rgba(255,255,255,0.22)_0%,_transparent_65%)] pointer-events-none rounded-[28px] sm:rounded-[36px]"
               aria-hidden="true"
             />
 
-            {/* Frosted Glass Floating Circle (Matches Pinterest design above right card) */}
-            <div
+            {/* Frosted Glass Floating Circle with Gentle Idle Float */}
+            <motion.div
+              animate={{ y: [0, -8, 0], rotate: [0, 8, 0] }}
+              transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut" }}
               className="hidden lg:flex absolute top-6 right-20 w-11 h-11 rounded-full bg-white/20 backdrop-blur-md border border-white/35 shadow-inner items-center justify-center pointer-events-none z-10"
               aria-hidden="true"
             >
               <div className="w-4 h-4 rounded-full bg-white/30" />
-            </div>
+            </motion.div>
 
-            {/* Header Content: Compact title and subtitle matching reference */}
-            <div className="relative z-10 max-w-md mx-auto mb-5 sm:mb-6">
-              <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-bold tracking-tight text-white leading-tight">
+            {/* Header Content: Attractive Luxury Editorial Title & Subtitle */}
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
+              className="relative z-10 max-w-md mx-auto mb-5 sm:mb-6"
+            >
+              <h2 className="font-display text-3xl sm:text-4xl lg:text-[42px] font-normal tracking-[-0.015em] text-white leading-tight drop-shadow-sm">
                 Our Work
               </h2>
-              <p className="mt-1 text-xs sm:text-sm text-white/90 font-medium">
+              <p className="mt-1.5 text-xs sm:text-sm text-white/90 font-medium tracking-wide">
                 A Selection of Signature Projects in Bangalore
               </p>
-            </div>
+            </motion.div>
+
 
             {/* ========================================================= */}
             {/* 2. THE 3 PROJECT CARDS ROW                                */}
@@ -68,9 +84,18 @@ export default function FeaturedProjectsShell() {
                   const isRevealed = isHovered || isTapped;
 
                   return (
-                    <article
+                    <motion.article
                       key={project.slug}
                       data-project-card
+                      initial={{ opacity: 0, y: 45, scale: 0.95 }}
+                      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                      viewport={{ once: true, amount: 0.2 }}
+                      transition={{
+                        duration: 0.75,
+                        delay: 0.2 + idx * 0.15,
+                        ease: [0.22, 1, 0.36, 1],
+                      }}
+                      whileHover={{ y: -8, transition: { duration: 0.3 } }}
                       onMouseEnter={() => setHoveredIndex(idx)}
                       onMouseLeave={() => setHoveredIndex(null)}
                       onFocus={() => setHoveredIndex(idx)}
@@ -78,7 +103,7 @@ export default function FeaturedProjectsShell() {
                       tabIndex={0}
                       role="region"
                       aria-label={`${project.name} property card`}
-                      className={`relative select-none text-left focus:outline-none transition-all duration-300 ${
+                      className={`relative select-none text-left focus:outline-none transition-shadow duration-300 ${
                         isRevealed ? "z-30" : "z-10"
                       }`}
                     >
@@ -173,7 +198,7 @@ export default function FeaturedProjectsShell() {
                           alt={project.heroImage.alt}
                           fill
                           sizes="(max-width: 768px) 100vw, 33vw"
-                          className="object-cover object-center"
+                          className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
                         />
 
                         {/* Status Badge */}
@@ -196,7 +221,7 @@ export default function FeaturedProjectsShell() {
                           {isTapped ? "Close" : "Details"}
                         </button>
                       </div>
-                    </article>
+                    </motion.article>
                   );
                 })}
               </div>
@@ -210,8 +235,10 @@ export default function FeaturedProjectsShell() {
               className="relative z-10 flex items-center justify-center space-x-2 pt-14 sm:pt-16 md:pt-14 pb-1"
               aria-label="Slider indicators"
             >
-              <button
+              <motion.button
                 type="button"
+                whileHover={{ scale: 1.15 }}
+                whileTap={{ scale: 0.95 }}
                 onClick={() => setHoveredIndex(0)}
                 aria-label="View project 1"
                 className={`h-1 rounded-full transition-all duration-300 ${
@@ -220,8 +247,10 @@ export default function FeaturedProjectsShell() {
                     : "w-8 bg-white/40 hover:bg-white/70"
                 }`}
               />
-              <button
+              <motion.button
                 type="button"
+                whileHover={{ scale: 1.15 }}
+                whileTap={{ scale: 0.95 }}
                 onClick={() => setHoveredIndex(1)}
                 aria-label="View project 2"
                 className={`h-1 rounded-full transition-all duration-300 ${
@@ -230,8 +259,10 @@ export default function FeaturedProjectsShell() {
                     : "w-8 bg-white/40 hover:bg-white/70"
                 }`}
               />
-              <button
+              <motion.button
                 type="button"
+                whileHover={{ scale: 1.15 }}
+                whileTap={{ scale: 0.95 }}
                 onClick={() => setHoveredIndex(2)}
                 aria-label="View project 3"
                 className={`h-1 rounded-full transition-all duration-300 ${
@@ -241,12 +272,18 @@ export default function FeaturedProjectsShell() {
                 }`}
               />
             </div>
-          </div>
+          </motion.div>
 
           {/* ========================================================= */}
           {/* 4. SHOWCASE BOTTOM BAR (Below the Blue Panel)             */}
           {/* ========================================================= */}
-          <div className="w-full max-w-4xl mx-auto px-4 mt-5 flex items-center justify-between">
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.35 }}
+            className="w-full max-w-4xl mx-auto px-4 mt-5 flex items-center justify-between"
+          >
             <Link
               href="/properties"
               className="inline-flex items-center text-xs sm:text-sm font-semibold text-[#17191C] hover:text-[#3B82F6] transition-colors group"
@@ -261,9 +298,10 @@ export default function FeaturedProjectsShell() {
             >
               <span>Bengaluru strategic growth corridors &rarr;</span>
             </Link>
-          </div>
+          </motion.div>
         </div>
       </Container>
     </section>
   );
 }
+

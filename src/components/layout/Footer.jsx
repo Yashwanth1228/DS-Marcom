@@ -14,7 +14,11 @@ export default function Footer() {
         <Container>
           {/* Logo on top: emblem made bigger as requested */}
           <div className="pb-6">
-            <Link href="/" className="inline-flex items-center gap-3.5 group">
+            <Link
+              href="/"
+              className="inline-flex items-center gap-3.5 group"
+              aria-label="DS MARCOM Home"
+            >
               <Image
                 src="/images/brand/ds-marcom-emblem.png"
                 alt="DS MARCOM Logo Emblem"
@@ -39,8 +43,8 @@ export default function Footer() {
             {/* Column 1: Sentence below the logo + Business Hours + Social Media Icons (4 cols) */}
             <div className="lg:col-span-4 space-y-3.5">
               <p className="text-sm text-[#475569] leading-relaxed max-w-sm">
-                Where verified growth meets sustainable living. DS MARCOM curates legally vetted
-                managed farmlands, BMRDA-approved plotted communities, and residential
+                Where verified growth meets modern living. DS MARCOM curates legally vetted
+                residential plots, BMRDA-approved plotted communities, and residential
                 developments across Bangalore’s most promising growth corridors.
               </p>
 
@@ -140,7 +144,7 @@ export default function Footer() {
                         Nagaraju Farm
                       </span>
                       <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-[#19B83A]/10 text-[#063B20] border border-[#19B83A]/25">
-                        Farmland
+                        Villa Plots
                       </span>
                     </div>
                     <span className="block text-xs text-[#64748B] mt-0.5">
@@ -244,7 +248,7 @@ export default function Footer() {
                 © {currentYear} {siteConfig.name}. All rights reserved.
               </p>
               <p className="text-[#9FE6AE] text-[11px]">
-                Bangalore Real Estate • Farmlands, Plotted Living & Residential Communities
+                Bangalore Real Estate • Plotted Living, Villa Plots & Residential Communities
               </p>
             </div>
           </Container>

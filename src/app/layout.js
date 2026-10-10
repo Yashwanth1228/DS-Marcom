@@ -33,12 +33,24 @@ export const metadata = {
     "BMRDA Sites Bangalore",
     "Mysore Road Plots",
     "Kumbalgodu Property",
-    "Nagaraju Farm",
+    "Villa Plots Mysore Road",
     "CRS Enclave",
     "Bangalore Property Investment",
   ],
-  authors: [{ name: siteConfig.name }],
+  authors: [{ name: siteConfig.name, url: siteConfig.url }],
   creator: siteConfig.name,
+  publisher: siteConfig.name,
+  icons: {
+    icon: [
+      { url: "/icon.png", sizes: "512x512", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: [
+      { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
   openGraph: {
     type: "website",
     locale: "en_IN",
@@ -46,11 +58,20 @@ export const metadata = {
     title: `${siteConfig.name} | Real Estate in Bangalore`,
     description: siteConfig.shortDescription,
     siteName: siteConfig.name,
+    images: [
+      {
+        url: "/images/brand/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: `${siteConfig.name} - Properties & Promoters Bengaluru`,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: `${siteConfig.name} | Real Estate in Bangalore`,
     description: siteConfig.shortDescription,
+    images: ["/images/brand/og-image.png"],
   },
   robots: {
     index: true,

@@ -10,7 +10,7 @@ import { projects } from "@/data/projects";
 export const metadata = {
   title: "Properties & Projects in Bangalore | DS MARCOM",
   description:
-    "Explore residential, commercial, BMRDA plotted layouts, and farm villa opportunities across Bangalore managed by DS Marcom.",
+    "Explore residential, commercial, BMRDA plotted layouts, and luxury villa opportunities across Bangalore managed by DS Marcom.",
 };
 
 export default function PropertiesPage() {

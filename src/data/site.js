@@ -77,7 +77,7 @@ export const siteConfig = {
     {
       name: "Big Banyan Tree Area",
       description:
-        "Serene green surroundings ideal for farm plots and weekend retreats.",
+        "Serene green surroundings ideal for residential villa plots and peaceful retreats.",
     },
     {
       name: "Wonderla / Bidadi Belt",
