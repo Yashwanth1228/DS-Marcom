@@ -37,9 +37,9 @@ export default function FaqShell() {
         "Our active property corridors are strategically situated along high-growth infrastructure belts in Bengaluru. Current locations include South-West Bangalore along the Bengaluru-Mysore Highway and Kumbalgodu, as well as emerging growth corridors in Bangalore North Taluk, such as Dasanapura Hobli and Nelamangala.",
     },
     {
-      question: "Are prices, payment schedules, and registration timelines standardized?",
+      question: "What are the allotment terms and registration timelines across properties?",
       answer:
-        "Pricing, payment milestones, and registration timelines depend on the individual property, its development stage, and plot dimensions. For example, project records for CRS Enclave specify immediate registration capabilities, while allotment terms and registry procedures at the local sub-registrar office are communicated with complete transparency and without unverified assurances.",
+        "Allotment terms, documentation review milestones, and registration timelines depend on the individual property, its development stage, and demarcated plot dimensions. For example, project records for CRS Enclave specify immediate registration capabilities, while allotment procedures at the local sub-registrar office are communicated with complete transparency and verified documentation.",
     },
     {
       question: "How can I contact DS Marcom or visit your Bengaluru office?",

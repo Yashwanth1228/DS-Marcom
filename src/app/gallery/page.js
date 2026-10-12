@@ -1,146 +1,59 @@
 import Image from "next/image";
+import Link from "next/link";
+import { FileText, Phone, ArrowRight, Sparkles, MapPin } from "lucide-react";
 import Container from "@/components/ui/Container";
-import SectionHeading from "@/components/ui/SectionHeading";
-import Badge from "@/components/ui/Badge";
-import Button from "@/components/ui/Button";
+import GalleryCoverFlow from "@/components/gallery/GalleryCoverFlow";
+import galleryHeroImg from "@/../public/images/gallery/gallery-hero.jpg";
 
 export const metadata = {
-  title: "Property & Location Gallery | DS MARCOM",
+  title: "Property & Project Gallery | DS MARCOM Real Estate Bangalore",
   description:
-    "Editorial visual gallery of Bangalore plotted developments, weekend villa environments, and regional landscapes.",
+    "Explore Bangalore's premier residential villa plots, gated layouts, and growth corridor developments through our visual archive.",
 };
-
-const galleryItems = [
-  {
-    title: "Residential Plotted Layouts",
-    location: "Near Kumbalgodu, Mysore Road",
-    category: "Villa Plots",
-    url: "/images/approach/stage1-explore-plots.jpg",
-    aspect: "col-span-12 md:col-span-8 aspect-[16/10]",
-    isPlaceholder: false,
-  },
-  {
-    title: "Weekend Retreat Architecture",
-    location: "Mysore Road Outskirts",
-    category: "Villa Concept",
-    url: "https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=1000&auto=format&fit=crop",
-    aspect: "col-span-12 md:col-span-4 aspect-[4/5]",
-    isPlaceholder: true,
-  },
-  {
-    title: "CRS Enclave - Layout & Access",
-    location: "Bengaluru",
-    category: "BMRDA Development",
-    url: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1000&auto=format&fit=crop",
-    aspect: "col-span-12 md:col-span-4 aspect-[4/5]",
-    isPlaceholder: true,
-  },
-  {
-    title: "Master Planned Plotted Enclave",
-    location: "South-West Bengaluru",
-    category: "Plotted Enclave",
-    url: "/images/about/about-development.jpg",
-    aspect: "col-span-12 md:col-span-8 aspect-[16/10]",
-    isPlaceholder: false,
-  },
-  {
-    title: "Royal Homes - Delivered Living",
-    location: "Bengaluru",
-    category: "Completed Project",
-    url: "https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?q=80&w=1200&auto=format&fit=crop",
-    aspect: "col-span-12 md:col-span-6 aspect-[16/11]",
-    isPlaceholder: true,
-  },
-  {
-    title: "Bangalore North Growth Belt",
-    location: "Dasanapura / Nelamangala",
-    category: "Strategic Opportunity",
-    url: "https://images.unsplash.com/photo-1582407947304-fd86f028f716?q=80&w=1200&auto=format&fit=crop",
-    aspect: "col-span-12 md:col-span-6 aspect-[16/11]",
-    isPlaceholder: true,
-  },
-];
 
 export default function GalleryPage() {
   return (
-    <div className="py-12 sm:py-16 lg:py-20">
-      {/* Header */}
-      <section className="pb-12 sm:pb-16 border-b border-[#E7E5E0]">
-        <Container>
-          <div className="max-w-3xl">
-            <Badge variant="bronze" className="mb-4">
-              Visual Archive
-            </Badge>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#17191C]">
-              Editorial Perspectives & Landscapes.
-            </h1>
-            <p className="mt-4 text-base sm:text-lg text-[#64748B] leading-relaxed">
-              Visual impressions and contextual imagery spanning DS Marcom&apos;s plotted layouts, villa plots, and Bangalore suburban environments.
-            </p>
-          </div>
-        </Container>
+    <div className="relative bg-[#FAF9F5] min-h-screen">
+      {/* =========================================================================
+          1. TOP HERO BANNER: Matching About Page Structure Exactly
+          ========================================================================= */}
+      <section className="relative w-full h-[260px] sm:h-[310px] lg:h-[360px] overflow-hidden bg-slate-900 flex items-center justify-center">
+        {/* Background Photo: Master-Planned Luxury Residential Community */}
+        <div className="absolute inset-0">
+          <Image
+            src={galleryHeroImg}
+            alt="DS MARCOM Real Estate Visual Gallery & Plotted Enclaves"
+            fill
+            sizes="100vw"
+            priority
+            loading="eager"
+            className="object-cover"
+            style={{ objectPosition: "50% 32%" }}
+          />
+          {/* Subtle translucent scrim (30% darkness) */}
+          <div className="absolute inset-0 bg-black/30 backdrop-blur-[0.5px]" />
+        </div>
+
+        {/* Hero Centered Content */}
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center flex flex-col items-center">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.6)]">
+            Gallery
+          </h1>
+        </div>
       </section>
 
-      {/* Editorial Masonry Grid */}
-      <section className="py-16 sm:py-20">
+      {/* =========================================================================
+          2. COVER FLOW GALLERY CARD: Overlapping Banner with Signature Card Look
+          Matching User's Reference Layout
+          ========================================================================= */}
+      <section className="relative z-20 -mt-8 sm:-mt-10 px-4 sm:px-6 lg:px-8 pb-20 sm:pb-24">
         <Container>
-          <div className="grid grid-cols-12 gap-6 sm:gap-8">
-            {galleryItems.map((item, index) => (
-              <div
-                key={index}
-                className={`group relative overflow-hidden bg-[#E7E5E0] border border-[#E7E5E0] ${item.aspect}`}
-              >
-                <Image
-                  src={item.url}
-                  alt={item.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
-                />
-
-                {/* Subtle scrim gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#17191C]/80 via-transparent to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
-
-                {/* Information Overlay */}
-                <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6 text-white">
-                  <span className="text-[10px] font-semibold uppercase tracking-widest text-[#B58A4A]">
-                    {item.category}
-                  </span>
-                  <h3 className="text-base sm:text-lg font-bold mt-1 text-white">
-                    {item.title}
-                  </h3>
-                  <p className="text-xs text-[#94A3B8] mt-0.5">
-                    {item.location}
-                  </p>
-                </div>
-
-                {item.isPlaceholder && (
-                  <div className="absolute top-3 right-3 bg-black/60 backdrop-blur-xs text-[9px] text-white/90 px-2 py-0.5">
-                    Representative Imagery
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      {/* Inquiry Box */}
-      <section className="pt-4 pb-16">
-        <Container size="narrow">
-          <div className="bg-[#172033] text-white p-8 sm:p-10 text-center flex flex-col items-center space-y-4">
-            <h3 className="text-xl sm:text-2xl font-bold">
-              Require High-Resolution Master Layouts?
-            </h3>
-            <p className="text-sm text-[#94A3B8] max-w-md">
-              Contact our office for official site layouts, survey sketches, and location map documents.
-            </p>
-            <Button href="/contact" variant="bronze" size="md">
-              Request Documentation
-            </Button>
+          <div className="bg-white rounded-2xl sm:rounded-3xl shadow-xl shadow-slate-900/5 border border-slate-200/80 p-6 sm:p-10 lg:p-12 overflow-hidden">
+            <GalleryCoverFlow />
           </div>
         </Container>
       </section>
     </div>
   );
 }
+

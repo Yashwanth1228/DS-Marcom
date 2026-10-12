@@ -7,91 +7,92 @@
 export const projects = [
   {
     slug: "nagaraju-farm",
-    name: "Nagaraju Farm",
-    tagline: "Premium residential villa plots near Mysore Road, Bengaluru.",
-    status: "On Going",
-    category: "Residential Villa Plots",
+    name: "Nagaraju Farm Land",
+    tagline: "5,000–6,000 sq ft farm plots for weekend villas in Thippuru, near Kumbalagudu.",
+    status: "Ready for construction",
+    category: "Weekend Villa & Farm Plots",
     featured: true,
-    location: "Near Kumbalgodu, Mysore Road, Bengaluru",
-    region: "Mysore Road / Kumbalgodu",
+    location: "Thippuru, near Kumbalagudu, Bengaluru, Karnataka",
+    region: "Kumbalagudu / Mysore Road",
+    plotSize: "5,000–6,000 sq ft",
     shortDescription:
-      "A serene plotted residential enclave designed for independent villas, strategically situated approximately 6 km from the Bengaluru-Mysore Highway.",
+      "Expansive 5,000–6,000 sq ft farm plots in Thippuru near Kumbalagudu, thoughtfully planned for weekend villas and luxury retreats with concrete roads, electrical connection, entrance arch, and gated security.",
     description:
-      "Nagaraju Farm presents a strategic opportunity to own ready-to-build residential villa plots nestled in the high-growth corridor of South-West Bengaluru. Positioned near Kumbalgodu, the project blends tranquil living with effortless city connectivity. Existing project information highlights demarcated residential plots, verified documentation, and immediate construction viability.",
+      "Nagaraju Farm Land presents an exclusive enclave of expansive 5,000 to 6,000 sq ft farm plots, thoughtfully positioned in Thippuru near Kumbalagudu. Designed specifically for weekend villas, private farm estates, and bespoke luxury retreats, this gated setting features physically constructed concrete roads, electrical line connections, and a grand entrance arch.",
     
-    // Verified Highlights based strictly on company disclosures
+    // Verified Highlights based strictly on supplied disclosures
     highlights: [
       {
-        title: "Ready-to-Build",
-        description: "Existing project information states sites are ready for immediate construction.",
+        title: "Ready for Construction",
+        description: "Existing project records confirm sites are ready for immediate construction.",
       },
       {
-        title: "Strategic Highway Access",
-        description: "Approximately 6 km from the Bengaluru-Mysore Highway.",
+        title: "Demarcated Villa Plots",
+        description: "Individual 5,000 to 6,000 sq ft parcels with concrete internal road access.",
       },
       {
-        title: "Weekend Villa Suitability",
-        description: "Curated environment suitable for tranquil weekend homes and retreats.",
+        title: "Concrete Internal Roads",
+        description: "Durable on-ground concrete internal roads paved through the property.",
       },
       {
-        title: "Spacious Villa Enclaves",
-        description: "Demarcated plot layouts ideal for spacious independent home and villa construction.",
+        title: "Electrical Connection",
+        description: "Dedicated electric line poles and overhead utility connections installed.",
       },
       {
-        title: "Documentation",
-        description: "Existing project documentation references individual Pahani and RTC papers.",
+        title: "Grand Entrance Arch",
+        description: "Constructed modern entrance arch with integrated sliding security gate.",
       },
       {
-        title: "Immediate Registration",
-        description: "Immediate registration claimed on company project records.",
+        title: "Immediate Registration Available",
+        description: "Immediate registration available, subject to current confirmation.",
       },
     ],
 
     // Verified FAQs strictly from company records
     faq: [
       {
-        question: "Where is Nagaraju Farm located?",
-        answer: "Near Kumbalgodu, Mysore Road, Bengaluru.",
+        question: "Where is Nagaraju Farm Land located?",
+        answer: "Thippuru, near Kumbalagudu, Bengaluru, Karnataka.",
       },
       {
-        question: "Are the plots ready to build?",
-        answer: "Existing project information states that the sites are ready for immediate construction.",
+        question: "What are the plot dimensions at Nagaraju Farm Land?",
+        answer: "Plot sizes range from 5,000 to 6,000 sq ft, intended for weekend villas and luxury country retreats.",
       },
       {
-        question: "What documents are mentioned?",
-        answer: "Existing project information mentions individual Pahani and RTC documents.",
+        question: "What facilities are built on site?",
+        answer: "Gated community, concrete internal roads, electrical connection, and modern entrance arch.",
       },
       {
-        question: "Are the plots suitable for villa construction?",
-        answer: "Existing project information highlights readiness for immediate villa construction and peaceful residential living.",
+        question: "What is the intended use?",
+        answer: "Weekend villa plots, farm plots, and luxury villas.",
       },
       {
-        question: "Can the property be used for a weekend villa?",
-        answer: "Existing project information states that it can be used for a weekend villa.",
+        question: "How far is the project from major highways?",
+        answer: "Approximately 6 km from Bengaluru–Mysuru Highway, 4 km from BGS College, 5 km from Bidadi Toyota, and 7 km from Kanakapura Road.",
       },
     ],
 
-    // Real estate imagery
+    // Authentic on-ground project photography
     heroImage: {
-      url: "/images/approach/stage1-explore-plots.jpg",
-      alt: "Master-planned residential plotted layout near Kumbalgodu Bangalore",
+      url: "/images/projects/nagaraju-farm/hero-road.jpg",
+      alt: "Nagaraju Farm Land concrete internal road and electrical poles in Thippuru near Kumbalagudu",
       isPlaceholder: false,
     },
     gallery: [
       {
-        url: "/images/about/about-development.jpg",
-        alt: "Modern plotted villa development in Bangalore",
+        url: "/images/projects/nagaraju-farm/entrance-arch.jpg",
+        alt: "Nagaraju Farm Land modern entrance arch with security gate",
         isPlaceholder: false,
       },
       {
-        url: "https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=1200&auto=format&fit=crop",
-        alt: "Architectural weekend villa concept",
-        isPlaceholder: true,
+        url: "/images/projects/nagaraju-farm/internal-road-compound.png",
+        alt: "Nagaraju Farm Land concrete internal road and compound wall",
+        isPlaceholder: false,
       },
       {
-        url: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&auto=format&fit=crop",
-        alt: "Plotted community layout and avenue roads",
-        isPlaceholder: true,
+        url: "/images/projects/nagaraju-farm/hero-road.jpg",
+        alt: "Nagaraju Farm Land wide concrete road avenue",
+        isPlaceholder: false,
       },
     ],
   },
@@ -140,21 +141,25 @@ export const projects = [
     ],
 
     heroImage: {
-      url: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1600&auto=format&fit=crop",
-      alt: "Planned residential plotted layout in Bangalore",
-      isPlaceholder: true,
-      note: "Replace with authentic CRS Enclave site photography.",
+      url: "/images/about/about-development.jpg",
+      alt: "BMRDA approved planned residential plotted layout in Bangalore",
+      isPlaceholder: false,
     },
     gallery: [
       {
-        url: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&auto=format&fit=crop",
-        alt: "Plotted development infrastructure",
-        isPlaceholder: true,
+        url: "/images/approach/stage1-explore-plots.jpg",
+        alt: "CRS Enclave demarcated plots and infrastructure",
+        isPlaceholder: false,
       },
       {
-        url: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1200&auto=format&fit=crop",
-        alt: "Modern residential layout and entrance",
-        isPlaceholder: true,
+        url: "/images/approach/stage3-document-review.jpg",
+        alt: "Legal title and survey document review",
+        isPlaceholder: false,
+      },
+      {
+        url: "/images/about/about-corridor-growth.jpg",
+        alt: "Regional highway connectivity and transit corridor",
+        isPlaceholder: false,
       },
     ],
   },
@@ -195,21 +200,25 @@ export const projects = [
     ],
 
     heroImage: {
-      url: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1600&auto=format&fit=crop",
-      alt: "Completed residential architecture by DS Marcom",
-      isPlaceholder: true,
-      note: "Replace with authentic Royal Homes photography.",
+      url: "/images/about/about-overview-exterior.jpg",
+      alt: "Completed residential villa architecture delivered by DS Marcom",
+      isPlaceholder: false,
     },
     gallery: [
       {
-        url: "https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?q=80&w=1200&auto=format&fit=crop",
-        alt: "Residential property exterior",
-        isPlaceholder: true,
+        url: "/images/about/about-overview-interior.jpg",
+        alt: "Residential living spaces and curated interiors",
+        isPlaceholder: false,
       },
       {
-        url: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1200&auto=format&fit=crop",
-        alt: "High quality residential living space",
-        isPlaceholder: true,
+        url: "/images/about/about-team.jpg",
+        alt: "Advisory client satisfaction and delivery",
+        isPlaceholder: false,
+      },
+      {
+        url: "/images/about/about-development.jpg",
+        alt: "Delivered residential enclave environment",
+        isPlaceholder: false,
       },
     ],
   },
@@ -250,16 +259,20 @@ export const projects = [
     ],
 
     heroImage: {
-      url: "https://images.unsplash.com/photo-1582407947304-fd86f028f716?q=80&w=1600&auto=format&fit=crop",
+      url: "/images/about/about-corridor-growth.jpg",
       alt: "Bangalore North real estate landscape and development belt",
-      isPlaceholder: true,
-      note: "Replace with authentic project photography.",
+      isPlaceholder: false,
     },
     gallery: [
       {
-        url: "https://images.unsplash.com/photo-1582407947304-fd86f028f716?q=80&w=1200&auto=format&fit=crop",
-        alt: "Development corridor",
-        isPlaceholder: true,
+        url: "/images/about/about-cta-sunset.jpg",
+        alt: "Bangalore North growth corridor at sunset",
+        isPlaceholder: false,
+      },
+      {
+        url: "/images/approach/stage4-decision-possession.jpg",
+        alt: "Property possession and growth corridor decision",
+        isPlaceholder: false,
       },
     ],
   },

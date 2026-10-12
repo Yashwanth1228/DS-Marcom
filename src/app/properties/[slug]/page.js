@@ -8,6 +8,7 @@ import Button from "@/components/ui/Button";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { projects, getProjectBySlug, getAllProjectSlugs } from "@/data/projects";
 import { siteConfig } from "@/data/site";
+import NagarajuFarmProjectPage from "@/components/properties/nagaraju-farm/NagarajuFarmProjectPage";
 
 export function generateStaticParams() {
   return getAllProjectSlugs().map((slug) => ({
@@ -22,6 +23,25 @@ export async function generateMetadata({ params }) {
   if (!project) {
     return {
       title: "Project Not Found | DS MARCOM",
+    };
+  }
+
+  if (slug === "nagaraju-farm") {
+    return {
+      title: "Nagaraju Farm Land | 5,000–6,000 Sq Ft Farm Plots Near Kumbalagudu | DS MARCOM",
+      description:
+        "Nagaraju Farm Land in Thippuru, near Kumbalagudu, Bengaluru. Ready for construction with concrete roads, electrical connection, entrance arch, and gated security.",
+      openGraph: {
+        title: "Nagaraju Farm Land | DS MARCOM Properties & Promoters",
+        description:
+          "Expansive 5,000–6,000 sq ft weekend villa and farm plots in Thippuru near Kumbalagudu, ready for construction with on-ground infrastructure.",
+        images: [
+          {
+            url: "/images/projects/nagaraju-farm/hero-road.jpg",
+            alt: "Nagaraju Farm Land in Thippuru, near Kumbalagudu",
+          },
+        ],
+      },
     };
   }
 
@@ -47,6 +67,11 @@ export default async function ProjectDetailPage({ params }) {
 
   if (!project) {
     notFound();
+  }
+
+  // Bespoke Editorial Showcase for Nagaraju Farm Land
+  if (slug === "nagaraju-farm") {
+    return <NagarajuFarmProjectPage />;
   }
 
   return (
