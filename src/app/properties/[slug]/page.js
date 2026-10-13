@@ -10,6 +10,7 @@ import { projects, getProjectBySlug, getAllProjectSlugs } from "@/data/projects"
 import { siteConfig } from "@/data/site";
 import NagarajuFarmProjectPage from "@/components/properties/nagaraju-farm/NagarajuFarmProjectPage";
 import ChamundeshwariProjectPage from "@/components/properties/chamundeshwari-residency/ChamundeshwariProjectPage";
+import SumaResidencyProjectPage from "@/components/properties/suma-residency/SumaResidencyProjectPage";
 
 export function generateStaticParams() {
   return getAllProjectSlugs().map((slug) => ({
@@ -65,6 +66,25 @@ export async function generateMetadata({ params }) {
     };
   }
 
+  if (slug === "suma-residency") {
+    return {
+      title: "Suma Residency | Premium E-Khata Residential Plots in Bidadi | DS MARCOM",
+      description:
+        "Suma Residency in Lakshmisagara, Bidadi, Bengaluru. 30×40, 30×50 & 40×60 ft residential plots ready for registration and construction with 50 ft & 30 ft tar roads, 1-lakh-litre overhead water tank, and underground utilities.",
+      openGraph: {
+        title: "Suma Residency | DS MARCOM Properties & Promoters",
+        description:
+          "Premium E-Khata residential plots in Lakshmisagara, Bidadi. Complete on-ground infrastructure, 1-lakh-litre water tank, and immediate connectivity to Bengaluru–Mysuru Expressway.",
+        images: [
+          {
+            url: "/images/projects/suma-residency/hero-avenue.jpg",
+            alt: "Suma Residency in Lakshmisagara, Bidadi, Bengaluru",
+          },
+        ],
+      },
+    };
+  }
+
   return {
     title: `${project.name} | DS MARCOM`,
     description: project.shortDescription,
@@ -97,6 +117,11 @@ export default async function ProjectDetailPage({ params }) {
   // Bespoke Editorial Showcase for Chamundeshwari Residency
   if (slug === "chamundeshwari-residency") {
     return <ChamundeshwariProjectPage />;
+  }
+
+  // Bespoke Editorial Showcase for Suma Residency
+  if (slug === "suma-residency") {
+    return <SumaResidencyProjectPage />;
   }
 
   return (

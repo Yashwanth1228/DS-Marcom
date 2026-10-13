@@ -190,6 +190,119 @@ export const projects = [
     ],
   },
   {
+    slug: "suma-residency",
+    name: "Suma Residency",
+    tagline: "Own A Plot. Build A Future. Premium E-Khata residential plots in Lakshmisagara, Bidadi.",
+    status: "Ready for registration & construction",
+    category: "Premium E-Khata Villa Plots",
+    featured: true,
+    location: "Lakshmisagara, Bidadi, Bengaluru, Karnataka",
+    region: "Bidadi / Mysore Road Expressway",
+    plotSize: "30 × 40, 30 × 50 & 40 × 60 ft",
+    shortDescription:
+      "Premium E-Khata residential plots in Lakshmisagara, Bidadi. Ready for registration and construction with 50 ft & 30 ft tar roads, 1-lakh-litre overhead water tank, underground drainage, and street lights.",
+    description:
+      "Suma Residency is an exclusive E-Khata residential plotted development situated in Lakshmisagara, Bidadi, moments from the Bengaluru–Mysuru Expressway. Planned with 50 ft and 30 ft tar roads, underground electrical connections, underground drainage, and a dedicated 1-lakh-litre overhead water tank, it provides a solid foundation for private villas and future homebuilding.",
+    
+    highlights: [
+      {
+        title: "Ready for Registration & Construction",
+        description: "Advertised as ready for immediate registration and construction.",
+      },
+      {
+        title: "30×40, 30×50 & 40×60 Ft Plots",
+        description: "Versatile plot dimensions suited for luxury private villas and residences.",
+      },
+      {
+        title: "50 Ft & 30 Ft Tar Roads",
+        description: "Wide 50 ft main avenue and 30 ft cross arterial tar roads.",
+      },
+      {
+        title: "1-Lakh-Litre Overhead Water Tank",
+        description: "Dedicated high-capacity water reservoir storage facility on site.",
+      },
+      {
+        title: "Underground Drainage & Electricity",
+        description: "Subsurface drainage channels and underground electrical infrastructure.",
+      },
+      {
+        title: "Bengaluru–Mysuru Expressway Link",
+        description: "Direct, rapid arterial highway access to Bengaluru and Mysuru.",
+      },
+    ],
+
+    faq: [
+      {
+        question: "Where is Suma Residency located?",
+        answer: "Lakshmisagara, Bidadi, Bengaluru, Karnataka, moments from the Bengaluru–Mysuru Expressway.",
+      },
+      {
+        question: "What plot dimensions are available?",
+        answer: "30 × 40 ft (1,200 sq ft), 30 × 50 ft (1,500 sq ft), and 40 × 60 ft (2,400 sq ft).",
+      },
+      {
+        question: "What is the approval and legal status?",
+        answer: "Premium E-Khata residential plots, advertised as ready for registration and construction.",
+      },
+      {
+        question: "What facilities are planned on site?",
+        answer: "Entrance arch, 50 ft and 30 ft tar roads, underground drainage, street lights, sanitary connections, underground electrical connections, recreational garden, and a 1-lakh-litre overhead water tank.",
+      },
+      {
+        question: "What landmarks are situated nearby?",
+        answer: "Bengaluru–Mysuru Expressway, Bidadi Railway Station, Rajarajeswari Medical and Engineering College, Sri Gurukula International School, Christ University, Toyota Boshoku, KN Plastic Industries, and Sattva Ashraya.",
+      },
+    ],
+
+    heroImage: {
+      url: "/images/projects/suma-residency/hero-avenue.jpg",
+      alt: "Suma Residency on-ground residential layout in Lakshmisagara, Bidadi",
+      isPlaceholder: false,
+    },
+    gallery: [
+      {
+        url: "/images/projects/suma-residency/curb-stones-roadbed.jpg",
+        alt: "Internal roadbed with concrete kerb stones and plot markers at Suma Residency",
+        isPlaceholder: false,
+      },
+      {
+        url: "/images/projects/suma-residency/paver-drainage-entrance.jpg",
+        alt: "Entrance avenue with concrete paver drainage channels at Suma Residency",
+        isPlaceholder: false,
+      },
+      {
+        url: "/images/projects/suma-residency/site-leveling-machinery.jpg",
+        alt: "On-ground site leveling with heavy machinery at Suma Residency",
+        isPlaceholder: false,
+      },
+      {
+        url: "/images/projects/suma-residency/utility-materials-cabin.jpg",
+        alt: "Utility cabling yard and site cabin at Suma Residency",
+        isPlaceholder: false,
+      },
+      {
+        url: "/images/projects/suma-residency/expressway-bridge-view.jpg",
+        alt: "Suma Residency adjacent to Bengaluru–Mysuru Expressway elevated flyover",
+        isPlaceholder: false,
+      },
+      {
+        url: "/images/projects/suma-residency/water-tank-layout-view.jpg",
+        alt: "Overhead water tank and demarcated plots at Suma Residency",
+        isPlaceholder: false,
+      },
+      {
+        url: "/images/projects/suma-residency/lake-expressway-view.jpg",
+        alt: "Scenic lake and expressway corridor near Suma Residency",
+        isPlaceholder: false,
+      },
+      {
+        url: "/images/projects/suma-residency/compound-wall-perimeter.jpg",
+        alt: "Precast compound wall perimeter demarcation at Suma Residency",
+        isPlaceholder: false,
+      },
+    ],
+  },
+  {
     slug: "crs-enclave",
     name: "CRS Enclave",
     tagline: "BMRDA approved plotted development with immediate registration & construction.",

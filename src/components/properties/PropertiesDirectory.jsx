@@ -176,28 +176,6 @@ export default function PropertiesDirectory() {
           </article>
         ))}
       </div>
-
-      {/* Advisory Assistance Card */}
-      <div className="mt-14 p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-slate-50 border border-slate-200/80 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
-        <div className="space-y-1 max-w-xl">
-          <h4 className="text-base sm:text-lg font-bold text-slate-900">
-            Seeking Specific Plot Sizes, Facings, or Legal Documentation?
-          </h4>
-          <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">
-            Connect with our advisory desk to review survey sketches, verify Pahani &amp; RTC copies, or arrange a personal on-ground site visit.
-          </p>
-        </div>
-
-        <div className="flex items-center gap-3 shrink-0 flex-wrap justify-center">
-          <Link
-            href="/contact"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#19B83A] hover:bg-[#159A30] text-white font-bold text-xs uppercase tracking-wider transition-all shadow-md shadow-[#19B83A]/20"
-          >
-            <span>Inquire With Us</span>
-            <ArrowRight className="w-3.5 h-3.5" />
-          </Link>
-        </div>
-      </div>
     </div>
   );
 }
