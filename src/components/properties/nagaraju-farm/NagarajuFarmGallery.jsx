@@ -31,26 +31,20 @@ export default function NagarajuFarmGallery() {
   }, [activeLightboxIndex, handleNext, handlePrev]);
 
   return (
-    <section className="relative py-20 sm:py-28 bg-white text-[#0B0D0C] border-t border-stone-200/80 overflow-hidden">
+    <section className="relative pt-10 sm:pt-12 lg:pt-14 pb-16 sm:pb-24 bg-white text-[#0B0D0C] border-t border-stone-200/80 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
         {/* Gallery Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12 sm:mb-16">
-          <div className="space-y-2">
-            <span className="text-[11px] font-bold uppercase tracking-[0.28em] text-[#063B20] block">
-              SITE DOCUMENTATION
-            </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#0B0D0C] tracking-tight">
-              On-Ground Project Archive.
-            </h2>
-          </div>
-
-          <p className="text-xs sm:text-sm text-stone-500 max-w-sm leading-relaxed">
-            Authentic photographs captured on location at Nagaraju Farm Land, Thippuru. Every view is physical reality.
-          </p>
+        <div className="space-y-2 mb-8 sm:mb-10">
+          <span className="text-[11px] font-bold uppercase tracking-[0.28em] text-[#063B20] block">
+            SITE DOCUMENTATION
+          </span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#0B0D0C] tracking-tight">
+            On-Ground Project Archive.
+          </h2>
         </div>
 
-        {/* Magazine-Style Photographic Arrangement */}
-        <div className="grid grid-cols-12 gap-5 sm:gap-6">
+        {/* Uniform Sized Photographic Grid (All images displayed in the exact same size) */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
           {images.map((item, index) => (
             <motion.div
               key={item.id}
@@ -59,23 +53,21 @@ export default function NagarajuFarmGallery() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               onClick={() => setActiveLightboxIndex(index)}
-              className={`${item.span} group relative rounded-3xl overflow-hidden bg-slate-900 border border-stone-200 shadow-md hover:shadow-2xl transition-all duration-500 cursor-pointer ${
-                item.isPrimary ? "h-[340px] sm:h-[460px]" : "h-[300px] sm:h-[380px]"
-              }`}
+              className="group relative rounded-2xl overflow-hidden bg-stone-200 border border-stone-200/90 shadow-md hover:shadow-xl transition-all duration-500 cursor-pointer aspect-[16/11] w-full"
             >
               <Image
                 src={item.url}
                 alt={item.title}
                 fill
-                sizes="(max-width: 1024px) 100vw, 60vw"
-                className="object-cover object-center group-hover:scale-106 transition-transform duration-700 ease-out"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
               />
 
               {/* Scrim */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent" />
 
               {/* Zoom Action Icon */}
-              <div className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/90 backdrop-blur-md text-slate-900 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-lg">
+              <div className="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/90 backdrop-blur-md text-slate-900 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-md">
                 <Maximize2 className="w-4 h-4" />
               </div>
 
@@ -83,12 +75,12 @@ export default function NagarajuFarmGallery() {
               <div className="absolute bottom-4 left-4 right-4 text-white z-10 space-y-1">
                 <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-black/60 backdrop-blur-md text-[10px] font-bold uppercase tracking-wider text-emerald-300 border border-white/10">
                   <Camera className="w-3 h-3 text-[#19B83A]" />
-                  <span>On-Ground Photography</span>
+                  <span>On-Ground Site View</span>
                 </span>
                 <h3 className="text-sm sm:text-base font-bold text-white drop-shadow-md">
                   {item.title}
                 </h3>
-                <p className="text-xs text-stone-300 line-clamp-1">
+                <p className="text-xs text-stone-200 line-clamp-1">
                   {item.caption}
                 </p>
               </div>

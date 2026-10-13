@@ -1,291 +1,463 @@
 "use client";
 
+import { useState } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
-import { MapPin, Milestone, Info, Navigation, ArrowUpRight } from "lucide-react";
-import { nagarajuFarmData } from "@/data/nagarajuFarmData";
+import {
+  MapPin,
+  Navigation,
+  Compass,
+  Building2,
+  GraduationCap,
+  Car,
+  Route,
+  Layers,
+  Search,
+  Plus,
+  Minus,
+} from "lucide-react";
 
 export default function NagarajuFarmLandmarks() {
-  const landmarks = nagarajuFarmData.landmarks;
+  const [activeId, setActiveId] = useState("bisleri"); // Default to closest landmark (Bisleri 1.5 km)
+  const [mapType, setMapType] = useState("map");
+
+  const landmarks = [
+    {
+      id: "bisleri",
+      name: "Bisleri Factory",
+      distance: "1.5 km",
+      number: "01",
+      category: "Industrial Landmark",
+      time: "4 mins",
+      x: 510,
+      y: 200,
+      badgeX: 425,
+      badgeY: 165,
+      badgeW: 165,
+      path: "M 360 240 Q 435 220 510 200",
+    },
+    {
+      id: "bgs",
+      name: "BGS College",
+      distance: "4 km",
+      number: "02",
+      category: "Education Node",
+      time: "8 mins",
+      x: 690,
+      y: 80,
+      badgeX: 615,
+      badgeY: 45,
+      badgeW: 155,
+      path: "M 360 240 Q 525 160 690 80",
+    },
+    {
+      id: "toyota",
+      name: "Bidadi Toyota",
+      distance: "5 km",
+      number: "03",
+      category: "Automotive Hub",
+      time: "10 mins",
+      x: 320,
+      y: 405,
+      badgeX: 235,
+      badgeY: 370,
+      badgeW: 165,
+      path: "M 360 240 Q 340 320 320 405",
+    },
+    {
+      id: "highway",
+      name: "Bengaluru–Mysuru Hwy",
+      distance: "6 km",
+      number: "04",
+      category: "Arterial Expressway (NH 275)",
+      time: "12 mins",
+      x: 555,
+      y: 260,
+      badgeX: 470,
+      badgeY: 225,
+      badgeW: 195,
+      path: "M 360 240 Q 460 250 555 260",
+    },
+    {
+      id: "kanakapura",
+      name: "Kanakapura Road",
+      distance: "7 km",
+      number: "05",
+      category: "Connecting Corridor",
+      time: "15 mins",
+      x: 810,
+      y: 310,
+      badgeX: 720,
+      badgeY: 275,
+      badgeW: 180,
+      path: "M 360 240 Q 585 275 810 310",
+    },
+  ];
 
   return (
-    <section className="relative py-14 sm:py-20 lg:py-24 bg-[#F7F8F5] text-[#0B0D0C] overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
-        {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14 space-y-2.5">
-          <span className="text-[11px] font-bold uppercase tracking-[0.28em] text-[#063B20] block">
-            LOCATION CONNECTIVITY
+    <section className="relative py-6 sm:py-8 lg:py-10 bg-[#F7F8F5] text-[#0B0D0C] border-t border-stone-200/80 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Compact Header — Clean & Screen-Fit */}
+        <div className="space-y-0.5 mb-4 sm:mb-5">
+          <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#063B20] block">
+            REGIONAL ACCESSIBILITY
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0B0D0C] tracking-tight">
+          <h2 className="text-2xl sm:text-3xl font-black text-[#0B0D0C] tracking-tight">
             Connected to the Places That Matter.
           </h2>
-          <p className="text-xs sm:text-sm text-stone-600 leading-relaxed max-w-lg mx-auto">
-            Situated in Thippuru near Kumbalagudu with immediate arterial access to key industrial, educational, and transit corridors.
-          </p>
-
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-stone-200/70 text-stone-600 text-[11px] font-medium mt-1">
-            <Info className="w-3.5 h-3.5 text-[#063B20]" />
-            <span>Nearby landmarks · Distances as provided · Illustrative connectivity graphic</span>
-          </div>
         </div>
 
-        {/* =========================================================================
-            DESKTOP / LAPTOP: REFINED CONNECTIVITY ROUTE DIAGRAM
-            Neat lines, exact termination dots, uniform cards, balanced whitespace
-            ========================================================================= */}
-        <div className="hidden lg:block relative bg-white rounded-3xl p-8 lg:p-10 border border-stone-200/90 shadow-xl overflow-hidden mb-8">
-          {/* Subtle Background Radial Aura */}
-          <div className="absolute inset-0 bg-radial-gradient from-emerald-500/5 via-transparent to-transparent pointer-events-none" />
-
-          {/* Diagram Canvas with Fixed Aspect Coordinate Space */}
-          <div className="relative w-full h-[460px]">
-            {/* SVG Vector Paths & Termination Nodes */}
-            <svg
-              className="absolute inset-0 w-full h-full pointer-events-none"
-              viewBox="0 0 1000 460"
-              preserveAspectRatio="xMidYMid meet"
-            >
-              <defs>
-                <linearGradient id="routeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#19B83A" stopOpacity="0.85" />
-                  <stop offset="100%" stopColor="#063B20" stopOpacity="0.35" />
-                </linearGradient>
-              </defs>
-
-              {/* Path 1 -> Bisleri Factory (Node 01: 1.5 km) Top Left */}
-              <motion.path
-                d="M 500 230 C 400 190, 320 140, 240 100"
-                fill="none"
-                stroke="url(#routeGradient)"
-                strokeWidth="2.5"
-                strokeDasharray="5 5"
-                initial={{ pathLength: 0, opacity: 0 }}
-                whileInView={{ pathLength: 1, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 1, ease: "easeInOut" }}
-              />
-              <circle cx="240" cy="100" r="4.5" fill="#19B83A" />
-              <circle cx="240" cy="100" r="9" fill="#19B83A" fillOpacity="0.2" />
-
-              {/* Path 2 -> BGS College (Node 02: 4 km) Top Right */}
-              <motion.path
-                d="M 500 230 C 600 190, 680 140, 760 100"
-                fill="none"
-                stroke="url(#routeGradient)"
-                strokeWidth="2.5"
-                strokeDasharray="5 5"
-                initial={{ pathLength: 0, opacity: 0 }}
-                whileInView={{ pathLength: 1, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 1.1, ease: "easeInOut" }}
-              />
-              <circle cx="760" cy="100" r="4.5" fill="#19B83A" />
-              <circle cx="760" cy="100" r="9" fill="#19B83A" fillOpacity="0.2" />
-
-              {/* Path 3 -> Bidadi Toyota (Node 03: 5 km) Mid Left */}
-              <motion.path
-                d="M 500 230 C 390 240, 300 255, 230 265"
-                fill="none"
-                stroke="url(#routeGradient)"
-                strokeWidth="2.5"
-                strokeDasharray="5 5"
-                initial={{ pathLength: 0, opacity: 0 }}
-                whileInView={{ pathLength: 1, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 1.2, ease: "easeInOut" }}
-              />
-              <circle cx="230" cy="265" r="4.5" fill="#19B83A" />
-              <circle cx="230" cy="265" r="9" fill="#19B83A" fillOpacity="0.2" />
-
-              {/* Path 4 -> Bengaluru-Mysuru Highway (Node 04: 6 km) Mid Right */}
-              <motion.path
-                d="M 500 230 C 610 240, 700 255, 770 265"
-                fill="none"
-                stroke="url(#routeGradient)"
-                strokeWidth="3"
-                initial={{ pathLength: 0, opacity: 0 }}
-                whileInView={{ pathLength: 1, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 1.3, ease: "easeInOut" }}
-              />
-              <circle cx="770" cy="265" r="5" fill="#063B20" />
-              <circle cx="770" cy="265" r="10" fill="#19B83A" fillOpacity="0.25" />
-
-              {/* Path 5 -> Kanakapura Road (Node 05: 7 km) Bottom Center */}
-              <motion.path
-                d="M 500 230 L 500 375"
-                fill="none"
-                stroke="url(#routeGradient)"
-                strokeWidth="2.5"
-                strokeDasharray="5 5"
-                initial={{ pathLength: 0, opacity: 0 }}
-                whileInView={{ pathLength: 1, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 1.4, ease: "easeInOut" }}
-              />
-              <circle cx="500" cy="375" r="4.5" fill="#19B83A" />
-              <circle cx="500" cy="375" r="9" fill="#19B83A" fillOpacity="0.2" />
-            </svg>
-
-            {/* =============================================================
-                CENTRAL PROJECT ANCHOR NODE (Centered at 500px, 230px)
-                ============================================================= */}
-            <div className="absolute top-[230px] left-[50%] -translate-x-1/2 -translate-y-1/2 z-20">
-              <motion.div
-                initial={{ scale: 0.9, opacity: 0 }}
-                whileInView={{ scale: 1, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-                className="w-[230px] bg-[#063B20] text-white p-4 rounded-2xl shadow-xl border-2 border-[#19B83A]/40 text-center flex flex-col items-center"
-              >
-                <div className="w-9 h-9 rounded-xl bg-[#19B83A] text-white flex items-center justify-center shadow-md mb-2">
-                  <MapPin className="w-5 h-5 stroke-[2.5]" />
-                </div>
-                <span className="text-[9px] font-bold uppercase tracking-widest text-emerald-300 block mb-0.5">
-                  PROJECT LOCATION
+        {/* Integrated Side-by-Side Google Maps Dashboard */}
+        <div className="rounded-3xl bg-white border border-stone-200 shadow-sm overflow-hidden grid grid-cols-1 lg:grid-cols-12">
+          {/* Left Column (5 cols): Interactive Destinations List */}
+          <div className="lg:col-span-5 p-4 sm:p-5 lg:p-6 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-stone-200/80 bg-white">
+            <div>
+              <div className="flex items-center justify-between pb-2.5 mb-2.5 border-b border-stone-100">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-stone-700 flex items-center gap-1.5">
+                  <Navigation className="w-3.5 h-3.5 text-[#19B83A]" />
+                  <span>Key Regional Destinations</span>
                 </span>
-                <h3 className="text-sm font-extrabold text-white tracking-tight leading-snug">
-                  Nagaraju Farm Land
-                </h3>
-                <p className="text-[10px] text-stone-300 mt-0.5">
-                  Thippuru · Near Kumbalagudu
-                </p>
-              </motion.div>
-            </div>
+                <span className="text-[10px] font-bold text-[#19B83A] bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
+                  5 Verified Nodes
+                </span>
+              </div>
 
-            {/* =============================================================
-                5 DESTINATION NODES (Uniform Card Sizes & Alignment)
-                ============================================================= */}
+              {/* 5 Destination Cards */}
+              <div className="space-y-1.5">
+                {landmarks.map((lm) => {
+                  const isActive = activeId === lm.id;
+                  return (
+                    <div
+                      key={lm.id}
+                      onMouseEnter={() => setActiveId(lm.id)}
+                      onClick={() => setActiveId(lm.id)}
+                      className={`p-2.5 sm:p-3 rounded-xl border transition-all duration-200 cursor-pointer flex items-center justify-between gap-3 ${
+                        isActive
+                          ? "bg-[#063B20] text-white border-[#063B20] shadow-md translate-x-1"
+                          : "bg-stone-50/70 hover:bg-stone-100 border-stone-200/70 text-stone-800"
+                      }`}
+                    >
+                      <div className="flex items-center gap-2.5 min-w-0">
+                        <span
+                          className={`w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold shrink-0 ${
+                            isActive
+                              ? "bg-[#19B83A] text-white"
+                              : "bg-white text-stone-600 border border-stone-200"
+                          }`}
+                        >
+                          {lm.number}
+                        </span>
+                        <div className="min-w-0">
+                          <h4 className={`text-xs font-bold truncate ${isActive ? "text-white" : "text-stone-900"}`}>
+                            {lm.name}
+                          </h4>
+                          <span className={`text-[10px] block truncate ${isActive ? "text-stone-300" : "text-stone-500"}`}>
+                            {lm.category} · {lm.time}
+                          </span>
+                        </div>
+                      </div>
 
-            {/* NODE 01: Bisleri Factory (1.5 km) - Top Left */}
-            <div className="absolute top-[20px] left-[40px] z-10 w-[200px]">
-              <div className="bg-[#F7F8F5] p-3.5 rounded-2xl border border-stone-200 shadow-sm hover:shadow-md transition-all">
-                <div className="flex items-center justify-between mb-1">
-                  <span className="text-[9px] font-bold text-stone-400">NODE 01</span>
-                  <span className="text-[9px] font-medium text-stone-500">Industrial</span>
-                </div>
-                <h4 className="text-xs font-bold text-stone-900 leading-snug truncate">
-                  Bisleri Factory
-                </h4>
-                <div className="mt-2 inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-900 text-xs font-bold">
-                  <Milestone className="w-3 h-3 text-[#19B83A]" />
-                  <span>1.5 km</span>
-                </div>
+                      <div className="text-right shrink-0">
+                        <span
+                          className={`text-xs font-extrabold px-2.5 py-1 rounded-full inline-block ${
+                            isActive
+                              ? "bg-white/15 text-emerald-300 border border-white/20"
+                              : "bg-emerald-50 text-[#063B20] border border-emerald-200"
+                          }`}
+                        >
+                          {lm.distance}
+                        </span>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             </div>
 
-            {/* NODE 02: BGS College (4 km) - Top Right */}
-            <div className="absolute top-[20px] right-[40px] z-10 w-[200px]">
-              <div className="bg-[#F7F8F5] p-3.5 rounded-2xl border border-stone-200 shadow-sm hover:shadow-md transition-all">
-                <div className="flex items-center justify-between mb-1">
-                  <span className="text-[9px] font-bold text-stone-400">NODE 02</span>
-                  <span className="text-[9px] font-medium text-stone-500">Education</span>
-                </div>
-                <h4 className="text-xs font-bold text-stone-900 leading-snug truncate">
-                  BGS College
-                </h4>
-                <div className="mt-2 inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-900 text-xs font-bold">
-                  <Milestone className="w-3 h-3 text-[#19B83A]" />
-                  <span>4 km</span>
-                </div>
-              </div>
-            </div>
-
-            {/* NODE 03: Bidadi Toyota (5 km) - Mid Left */}
-            <div className="absolute top-[215px] left-[30px] z-10 w-[200px]">
-              <div className="bg-[#F7F8F5] p-3.5 rounded-2xl border border-stone-200 shadow-sm hover:shadow-md transition-all">
-                <div className="flex items-center justify-between mb-1">
-                  <span className="text-[9px] font-bold text-stone-400">NODE 03</span>
-                  <span className="text-[9px] font-medium text-stone-500">Automotive</span>
-                </div>
-                <h4 className="text-xs font-bold text-stone-900 leading-snug truncate">
-                  Bidadi Toyota
-                </h4>
-                <div className="mt-2 inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-900 text-xs font-bold">
-                  <Milestone className="w-3 h-3 text-[#19B83A]" />
-                  <span>5 km</span>
-                </div>
-              </div>
-            </div>
-
-            {/* NODE 04: Bengaluru-Mysuru Highway (6 km) - Mid Right */}
-            <div className="absolute top-[215px] right-[30px] z-10 w-[210px]">
-              <div className="bg-white p-3.5 rounded-2xl border-2 border-[#19B83A]/50 shadow-md">
-                <div className="flex items-center justify-between mb-1">
-                  <span className="text-[9px] font-bold text-[#19B83A]">NODE 04 · ARTERY</span>
-                  <span className="text-[9px] font-semibold text-[#063B20]">Expressway</span>
-                </div>
-                <h4 className="text-xs font-bold text-stone-900 leading-snug truncate">
-                  Bengaluru–Mysuru Hwy
-                </h4>
-                <div className="mt-2 inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#063B20] text-white text-xs font-bold">
-                  <Milestone className="w-3 h-3 text-[#19B83A]" />
-                  <span>6 km</span>
-                </div>
-              </div>
-            </div>
-
-            {/* NODE 05: Kanakapura Road (7 km) - Bottom Center */}
-            <div className="absolute bottom-[10px] left-[50%] -translate-x-1/2 z-10 w-[220px]">
-              <div className="bg-[#F7F8F5] p-3.5 rounded-2xl border border-stone-200 shadow-sm hover:shadow-md transition-all text-center">
-                <div className="flex items-center justify-between mb-1">
-                  <span className="text-[9px] font-bold text-stone-400">NODE 05</span>
-                  <span className="text-[9px] font-medium text-stone-500">Connecting Corridor</span>
-                </div>
-                <h4 className="text-xs font-bold text-stone-900 leading-snug">
-                  Kanakapura Road
-                </h4>
-                <div className="mt-1.5 inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-900 text-xs font-bold">
-                  <Milestone className="w-3 h-3 text-[#19B83A]" />
-                  <span>7 km</span>
-                </div>
-              </div>
+            {/* Bottom Origin Info */}
+            <div className="pt-3 mt-3 border-t border-stone-100 flex items-center justify-between text-[11px] text-stone-500">
+              <span className="flex items-center gap-1.5 font-medium">
+                <MapPin className="w-3.5 h-3.5 text-[#EA4335]" />
+                <span>Origin: Nagaraju Farm Land, Thippuru</span>
+              </span>
+              <span className="text-stone-400 text-[10px]">Google Map View</span>
             </div>
           </div>
-        </div>
 
-        {/* =========================================================================
-            RESPONSIVE CONNECTIVITY GRID (Mobile & Tablet Reflow)
-            Guaranteed zero clipping, zero overlaps, clean uniform cards
-            ========================================================================= */}
-        <div className="lg:hidden space-y-4">
-          {/* Mobile Project Anchor Card */}
-          <div className="bg-[#063B20] text-white p-5 rounded-2xl border-2 border-[#19B83A]/30 text-center flex flex-col items-center">
-            <div className="w-10 h-10 rounded-xl bg-[#19B83A] text-white flex items-center justify-center shadow-md mb-2">
-              <MapPin className="w-5 h-5" />
-            </div>
-            <span className="text-[10px] font-bold uppercase tracking-widest text-emerald-300">
-              CENTRAL ANCHOR
-            </span>
-            <h3 className="text-base font-bold text-white mt-0.5">
-              Nagaraju Farm Land
-            </h3>
-            <p className="text-xs text-stone-300 mt-0.5">
-              Thippuru · Near Kumbalagudu, Bengaluru
-            </p>
-          </div>
+          {/* Right Column (7 cols): Authentic Google Maps Cartography Canvas */}
+          <div className="lg:col-span-7 relative bg-[#F2EFE9] min-h-[380px] sm:min-h-[420px] lg:min-h-[460px] overflow-hidden select-none">
+            {/* 1. Authentic Google Map Background Image */}
+            <Image
+              src="/images/projects/nagaraju-farm/google-map-background.jpg"
+              alt="Google Maps View of Thippuru, Kumbalagudu, Bengaluru"
+              fill
+              priority
+              sizes="(max-width: 1024px) 100vw, 60vw"
+              className="object-cover object-center"
+            />
 
-          {/* 5 Destination Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {landmarks.map((landmark) => (
-              <div
-                key={landmark.id}
-                className="bg-white p-4 rounded-2xl border border-stone-200 shadow-xs flex items-center justify-between gap-3"
+            {/* 2. Google Maps Interactive Overlay Canvas */}
+            <div className="absolute inset-0">
+              <svg
+                viewBox="0 0 1000 560"
+                className="w-full h-full"
+                preserveAspectRatio="xMidYMid meet"
               >
-                <div className="space-y-0.5">
-                  <span className="text-[10px] font-bold text-stone-400 block">
-                    {landmark.number} · {landmark.category}
-                  </span>
-                  <h4 className="text-xs sm:text-sm font-bold text-stone-900 leading-snug">
-                    {landmark.name}
-                  </h4>
-                </div>
+                <defs>
+                  {/* Google Maps Drop Shadows */}
+                  <filter id="gmapShadow" x="-20%" y="-20%" width="140%" height="140%">
+                    <feDropShadow dx="0" dy="2" stdDeviation="3" floodColor="#000000" floodOpacity="0.25" />
+                  </filter>
+                  <filter id="pinShadow" x="-30%" y="-30%" width="160%" height="160%">
+                    <feDropShadow dx="0" dy="3" stdDeviation="4" floodColor="#000000" floodOpacity="0.35" />
+                  </filter>
+                  <filter id="routeGlow" x="-20%" y="-20%" width="140%" height="140%">
+                    <feGaussianBlur stdDeviation="3" />
+                  </filter>
+                </defs>
 
-                <div className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[#063B20] text-white text-xs font-bold shrink-0">
-                  <Milestone className="w-3 h-3 text-[#19B83A]" />
-                  <span>{landmark.distance}</span>
-                </div>
-              </div>
-            ))}
+                {/* Navigation Connecting Routes (Google Maps Blue Navigation Line) */}
+                {landmarks.map((lm) => {
+                  const isActive = activeId === lm.id;
+                  return (
+                    <g key={`route-${lm.id}`}>
+                      {/* Active Blue Route Glow */}
+                      {isActive && (
+                        <path
+                          d={lm.path}
+                          fill="none"
+                          stroke="#4285F4"
+                          strokeWidth="10"
+                          strokeOpacity="0.4"
+                          strokeLinecap="round"
+                          filter="url(#routeGlow)"
+                        />
+                      )}
+
+                      {/* Main Route Line */}
+                      <path
+                        d={lm.path}
+                        fill="none"
+                        stroke={isActive ? "#1A73E8" : "#4285F4"}
+                        strokeWidth={isActive ? "4.5" : "2"}
+                        strokeDasharray={isActive ? "none" : "4 4"}
+                        strokeOpacity={isActive ? "1" : "0.5"}
+                        strokeLinecap="round"
+                        className="transition-all duration-300"
+                      />
+                    </g>
+                  );
+                })}
+
+                {/* 5 Destination Landmark Google Maps Pins */}
+                {landmarks.map((lm) => {
+                  const isActive = activeId === lm.id;
+                  return (
+                    <g
+                      key={`gpin-${lm.id}`}
+                      onMouseEnter={() => setActiveId(lm.id)}
+                      onClick={() => setActiveId(lm.id)}
+                      className="cursor-pointer"
+                    >
+                      {/* Destination Pin Base Shadow */}
+                      <ellipse cx={lm.x} cy={lm.y + 2} rx="6" ry="2.5" fill="rgba(0,0,0,0.3)" />
+
+                      {/* Destination Pin (Google Maps Blue/Dark Marker) */}
+                      <g filter="url(#pinShadow)">
+                        <circle
+                          cx={lm.x}
+                          cy={lm.y - 10}
+                          r={isActive ? "11" : "9"}
+                          fill={isActive ? "#1A73E8" : "#FFFFFF"}
+                          stroke={isActive ? "#FFFFFF" : "#1A73E8"}
+                          strokeWidth="2.5"
+                          className="transition-all duration-200"
+                        />
+                        <circle
+                          cx={lm.x}
+                          cy={lm.y - 10}
+                          r="4"
+                          fill={isActive ? "#FFFFFF" : "#1A73E8"}
+                        />
+                      </g>
+
+                      {/* Google Maps Clean Callout Pill Badge */}
+                      <g filter="url(#gmapShadow)">
+                        <rect
+                          x={lm.badgeX}
+                          y={lm.badgeY}
+                          width={lm.badgeW}
+                          height="24"
+                          rx="12"
+                          fill={isActive ? "#1A73E8" : "#FFFFFF"}
+                          stroke={isActive ? "#1557B0" : "#DADCE0"}
+                          strokeWidth={isActive ? "1.5" : "1"}
+                          className="transition-colors duration-200"
+                        />
+
+                        {/* Number Badge */}
+                        <circle
+                          cx={lm.badgeX + 12}
+                          cy={lm.badgeY + 12}
+                          r="7"
+                          fill={isActive ? "#FFFFFF" : "#E8F0FE"}
+                        />
+                        <text
+                          x={lm.badgeX + 12}
+                          y={lm.badgeY + 14.5}
+                          textAnchor="middle"
+                          fill={isActive ? "#1A73E8" : "#1A73E8"}
+                          fontSize="7.5"
+                          fontWeight="bold"
+                          fontFamily="Roboto, sans-serif"
+                        >
+                          {lm.number}
+                        </text>
+
+                        {/* Text Label & Distance */}
+                        <text
+                          x={lm.badgeX + 24}
+                          y={lm.badgeY + 15}
+                          fill={isActive ? "#FFFFFF" : "#202124"}
+                          fontSize="8.5"
+                          fontWeight="bold"
+                          fontFamily="Roboto, sans-serif"
+                        >
+                          {lm.name} ·{" "}
+                          <tspan fill={isActive ? "#E8F0FE" : "#188038"} fontWeight="bold">
+                            {lm.distance}
+                          </tspan>
+                        </text>
+                      </g>
+                    </g>
+                  );
+                })}
+
+                {/* Central Site Origin Marker (Nagaraju Farm Land, Thippuru) */}
+                <g id="origin-pin">
+                  {/* Radar Ripple */}
+                  <circle cx="360" cy="240" r="24" fill="#EA4335" fillOpacity="0.12" />
+                  <circle cx="360" cy="240" r="14" fill="#EA4335" fillOpacity="0.25" />
+
+                  {/* Teardrop Ground Shadow */}
+                  <ellipse cx="360" cy="243" rx="8" ry="3" fill="rgba(0,0,0,0.35)" />
+
+                  {/* Iconic Google Maps Red Teardrop Marker */}
+                  <g filter="url(#pinShadow)">
+                    <path
+                      d="M 360 240 C 350 228, 342 214, 342 201 C 342 191 350 183 360 183 C 370 183 378 191 378 201 C 378 214, 370 228, 360 240 Z"
+                      fill="#EA4335"
+                    />
+                    <circle cx="360" cy="201" r="5" fill="#FFFFFF" />
+                  </g>
+
+                  {/* Google Maps Authentic Info Card */}
+                  <g filter="url(#gmapShadow)">
+                    {/* Small Pointer Triangle */}
+                    <path d="M 360 180 L 354 172 L 366 172 Z" fill="#FFFFFF" />
+
+                    {/* Card Body */}
+                    <rect
+                      x="255"
+                      y="128"
+                      width="210"
+                      height="44"
+                      rx="8"
+                      fill="#FFFFFF"
+                      stroke="#E8EAED"
+                      strokeWidth="1"
+                    />
+
+                    {/* Green Star Icon / Category Pill */}
+                    <circle cx="272" cy="144" r="8" fill="#E6F4EA" />
+                    <circle cx="272" cy="144" r="3.5" fill="#188038" />
+
+                    {/* Title */}
+                    <text
+                      x="286"
+                      y="144"
+                      fill="#202124"
+                      fontSize="11"
+                      fontWeight="bold"
+                      fontFamily="Roboto, sans-serif"
+                    >
+                      Nagaraju Farm Land
+                    </text>
+
+                    {/* Subtitle / Details */}
+                    <text
+                      x="286"
+                      y="159"
+                      fill="#5F6368"
+                      fontSize="8.5"
+                      fontFamily="Roboto, sans-serif"
+                    >
+                      Site Origin · Thippuru, near Kumbalagudu
+                    </text>
+                  </g>
+                </g>
+              </svg>
+            </div>
+
+            {/* 3. Authentic Google Maps UI Controls */}
+            {/* Top-Left Search Pill */}
+            <div className="absolute top-3 left-3 z-10 hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white shadow-md border border-stone-200/80 text-xs text-stone-700">
+              <Search className="w-3.5 h-3.5 text-stone-400" />
+              <span className="font-medium text-[11px]">Thippuru, Kumbalagudu, Bengaluru</span>
+            </div>
+
+            {/* Top-Right Map / Satellite Controls */}
+            <div className="absolute top-3 right-3 z-10 flex items-center rounded-lg bg-white shadow-md border border-stone-200/80 overflow-hidden text-[11px] font-semibold">
+              <button
+                type="button"
+                onClick={() => setMapType("map")}
+                className={`px-2.5 py-1 transition-colors ${
+                  mapType === "map" ? "bg-stone-100 text-stone-900 font-bold" : "text-stone-600 hover:bg-stone-50"
+                }`}
+              >
+                Map
+              </button>
+              <button
+                type="button"
+                onClick={() => setMapType("satellite")}
+                className={`px-2.5 py-1 transition-colors border-l border-stone-200 ${
+                  mapType === "satellite" ? "bg-stone-100 text-stone-900 font-bold" : "text-stone-600 hover:bg-stone-50"
+                }`}
+              >
+                Satellite
+              </button>
+            </div>
+
+            {/* Bottom-Right Zoom Controls */}
+            <div className="absolute bottom-6 right-3 z-10 flex flex-col rounded-lg bg-white shadow-md border border-stone-200/80 overflow-hidden text-stone-700">
+              <button
+                type="button"
+                className="w-7 h-7 flex items-center justify-center hover:bg-stone-50 border-b border-stone-200 transition-colors"
+                aria-label="Zoom in"
+              >
+                <Plus className="w-3.5 h-3.5" />
+              </button>
+              <button
+                type="button"
+                className="w-7 h-7 flex items-center justify-center hover:bg-stone-50 transition-colors"
+                aria-label="Zoom out"
+              >
+                <Minus className="w-3.5 h-3.5" />
+              </button>
+            </div>
+
+            {/* Bottom-Left Google Watermark & Scale */}
+            <div className="absolute bottom-2 left-3 z-10 flex items-center gap-3 text-[10px] text-stone-600/90 pointer-events-none select-none">
+              <span className="font-bold tracking-tight text-stone-800 text-xs">
+                Google
+              </span>
+              <span className="hidden sm:inline text-stone-500">
+                Map data ©2026 Google
+              </span>
+              <span className="hidden sm:inline border-b border-stone-500 px-2 font-mono text-[9px]">
+                2 km
+              </span>
+            </div>
           </div>
         </div>
       </div>

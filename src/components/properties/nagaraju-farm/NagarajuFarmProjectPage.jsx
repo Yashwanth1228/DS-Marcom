@@ -6,7 +6,6 @@ import NagarajuFarmFacilities from "./NagarajuFarmFacilities";
 import NagarajuFarmLandmarks from "./NagarajuFarmLandmarks";
 import NagarajuFarmGallery from "./NagarajuFarmGallery";
 import NagarajuFarmPricing from "./NagarajuFarmPricing";
-import NagarajuFarmEnquiry from "./NagarajuFarmEnquiry";
 
 export default function NagarajuFarmProjectPage() {
   return (
@@ -23,14 +22,11 @@ export default function NagarajuFarmProjectPage() {
       {/* 4. "Connected to the Places That Matter" - Hub & Spoke Connectivity Diagram */}
       <NagarajuFarmLandmarks />
 
-      {/* 5. Magazine-Style Authentic Photographic Archive & Lightbox */}
-      <NagarajuFarmGallery />
-
-      {/* 6. Verified Specifications & Highlights (Non-Price) */}
+      {/* 5. Verified Specifications & Highlights: "Verified Property Parameters." */}
       <NagarajuFarmPricing />
 
-      {/* 7. Asymmetric Project-Specific Enquiry Section */}
-      <NagarajuFarmEnquiry />
+      {/* 6. Magazine-Style Authentic Photographic Archive & Lightbox */}
+      <NagarajuFarmGallery />
     </div>
   );
 }

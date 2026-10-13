@@ -124,32 +124,25 @@ export const nagarajuFarmData = {
     },
   },
 
-  // Gallery items for the magazine-style layout
+  // Gallery items for the uniform photographic showcase
   gallery: [
     {
       id: "gallery-1",
       url: "/images/projects/nagaraju-farm/hero-road.jpg",
       title: "Concrete Internal Road & Overhead Utilities",
       caption: "Spacious concrete roads running the length of the property with dedicated electric poles.",
-      aspect: "landscape",
-      span: "col-span-12 lg:col-span-7",
-      isPrimary: true,
     },
     {
       id: "gallery-2",
       url: "/images/projects/nagaraju-farm/entrance-arch.jpg",
       title: "Grand Entrance Arch & Secured Gated Access",
       caption: "Architectural white entrance arch with wide sliding iron gate and boundary compound.",
-      aspect: "portrait",
-      span: "col-span-12 lg:col-span-5",
     },
     {
       id: "gallery-3",
       url: "/images/projects/nagaraju-farm/internal-road-compound.png",
       title: "Precast Compound Boundary & Internal Avenue",
       caption: "Full compound walling delineating the layout boundaries and internal road network.",
-      aspect: "landscape",
-      span: "col-span-12",
     },
   ],
 };

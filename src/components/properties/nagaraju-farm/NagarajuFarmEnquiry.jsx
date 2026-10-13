@@ -1,235 +1,191 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
-import { Phone, Mail, MapPin, Building2, Send, CheckCircle2, Clock } from "lucide-react";
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Building2,
+  Clock,
+  ArrowRight,
+  MessageSquare,
+  ShieldCheck,
+} from "lucide-react";
 import { nagarajuFarmData } from "@/data/nagarajuFarmData";
 
 export default function NagarajuFarmEnquiry() {
-  const [formState, setFormState] = useState({
-    name: "",
-    phone: "",
-    email: "",
-    plotPreference: "5,000 sq ft",
-    message: "I am interested in Nagaraju Farm Land. Please share current plot availability, site layout details, and arrangement for a site visit.",
-  });
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    // Simulate swift client verification submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSubmitted(true);
-    }, 600);
-  };
-
   return (
-    <section id="enquire" className="relative py-20 sm:py-28 lg:py-32 bg-[#F7F8F5] text-[#0B0D0C] overflow-hidden">
+    <section
+      id="enquire"
+      className="relative py-16 sm:py-24 bg-[#F7F8F5] text-[#0B0D0C] overflow-hidden border-t border-stone-200/80"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
-        {/* Asymmetrical Editorial Composition */}
-        <div className="bg-white rounded-3xl border border-stone-200/90 shadow-2xl overflow-hidden grid grid-cols-1 lg:grid-cols-12">
-          {/* Left Column: Authentic Project Photograph & Site Details */}
-          <div className="lg:col-span-5 relative bg-slate-900 text-white min-h-[380px] lg:min-h-full flex flex-col justify-between p-8 sm:p-10">
-            <Image
-              src={nagarajuFarmData.images.heroBanner.url}
-              alt={nagarajuFarmData.images.heroBanner.alt}
-              fill
-              sizes="(max-width: 1024px) 100vw, 40vw"
-              className="object-cover object-center opacity-40 mix-blend-overlay"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#063B20] via-[#063B20]/80 to-black/60 pointer-events-none" />
+        {/* Section Header */}
+        <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16 space-y-2">
+          <span className="text-[11px] font-bold uppercase tracking-[0.28em] text-[#063B20] block">
+            DIRECT ADVISORY &amp; SITE INSPECTIONS
+          </span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#0B0D0C] tracking-tight">
+            Connect with DS Marcom.
+          </h2>
+          <p className="text-xs sm:text-sm text-stone-600 max-w-lg mx-auto leading-relaxed">
+            Speak directly with our property advisors to arrange an on-ground site walkthrough, inspect plot demarcations, and verify documentation for Nagaraju Farm Land.
+          </p>
+        </div>
 
-            <div className="relative z-10 space-y-4">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#19B83A]/25 backdrop-blur-md text-emerald-300 text-xs font-bold uppercase tracking-wider border border-[#19B83A]/30">
-                <Building2 className="w-3.5 h-3.5 text-[#19B83A]" />
-                DS Marcom Properties &amp; Promoters
+        {/* 3 Direct Communication Channels (Form-Free) */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+          {/* Channel 1: Direct Telephone */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="p-6 sm:p-8 rounded-3xl bg-white border border-stone-200 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between"
+          >
+            <div className="space-y-3">
+              <div className="w-12 h-12 rounded-2xl bg-[#063B20] text-emerald-400 flex items-center justify-center">
+                <Phone className="w-6 h-6 text-[#19B83A]" />
+              </div>
+              <span className="text-[10px] font-bold uppercase tracking-wider text-stone-500 block">
+                Direct Telephone Line
               </span>
-
-              <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight leading-tight">
-                Plan a Private On-Ground Site Walkthrough.
+              <h3 className="text-lg font-bold text-stone-900">
+                Call Our Advisory Desk
               </h3>
-
-              <p className="text-xs sm:text-sm text-stone-200 leading-relaxed">
-                Experience the concrete internal roads, demarcated plot lines, and natural tranquility in person at Thippuru.
+              <p className="text-xs text-stone-600 leading-relaxed">
+                Connect with our team for immediate plot availability updates, physical site directions, and instant answers.
               </p>
             </div>
 
-            {/* Separated Project Location vs Corporate Office Address */}
-            <div className="relative z-10 pt-8 border-t border-white/15 space-y-4 text-xs text-stone-300">
-              <div className="space-y-1">
-                <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-400 block">
-                  Project Site Location
-                </span>
-                <p className="flex items-start gap-1.5 text-white font-medium">
-                  <MapPin className="w-3.5 h-3.5 text-[#19B83A] shrink-0 mt-0.5" />
-                  <span>{nagarajuFarmData.contact.projectSiteAddress}</span>
-                </p>
-              </div>
-
-              <div className="space-y-1">
-                <span className="text-[10px] font-bold uppercase tracking-wider text-stone-400 block">
-                  Company Registered Office
-                </span>
-                <p className="text-[11px] text-stone-300 leading-relaxed">
-                  {nagarajuFarmData.contact.officeAddress}
-                </p>
-              </div>
-
-              <div className="pt-2 flex flex-col sm:flex-row gap-2.5">
-                <a
-                  href={`tel:${nagarajuFarmData.contact.phone}`}
-                  className="inline-flex items-center gap-2 text-white font-bold hover:text-emerald-300 transition-colors"
-                >
-                  <Phone className="w-3.5 h-3.5 text-[#19B83A]" />
-                  <span>{nagarajuFarmData.contact.phoneDisplay}</span>
-                </a>
-
-                <span className="hidden sm:inline text-stone-500">•</span>
-
-                <a
-                  href={`mailto:${nagarajuFarmData.contact.email}`}
-                  className="inline-flex items-center gap-2 text-stone-300 hover:text-white transition-colors"
-                >
-                  <Mail className="w-3.5 h-3.5 text-[#19B83A]" />
-                  <span>{nagarajuFarmData.contact.email}</span>
-                </a>
-              </div>
+            <div className="pt-6 mt-6 border-t border-stone-100">
+              <a
+                href={`tel:${nagarajuFarmData.contact.phone}`}
+                className="w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-[#19B83A] hover:bg-[#159A30] text-white font-bold text-xs uppercase tracking-wider transition-all shadow-md shadow-[#19B83A]/20"
+              >
+                <Phone className="w-3.5 h-3.5" />
+                <span>Call {nagarajuFarmData.contact.phoneDisplay}</span>
+              </a>
             </div>
+          </motion.div>
+
+          {/* Channel 2: WhatsApp & Email */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="p-6 sm:p-8 rounded-3xl bg-white border border-stone-200 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between"
+          >
+            <div className="space-y-3">
+              <div className="w-12 h-12 rounded-2xl bg-[#063B20] text-emerald-400 flex items-center justify-center">
+                <MessageSquare className="w-6 h-6 text-[#19B83A]" />
+              </div>
+              <span className="text-[10px] font-bold uppercase tracking-wider text-stone-500 block">
+                Instant Messaging &amp; Email
+              </span>
+              <h3 className="text-lg font-bold text-stone-900">
+                Digital Communication
+              </h3>
+              <p className="text-xs text-stone-600 leading-relaxed">
+                Request layout drawings, survey sketches, and route plans directly to your phone or inbox.
+              </p>
+            </div>
+
+            <div className="pt-6 mt-6 border-t border-stone-100 flex flex-col sm:flex-row gap-2.5">
+              <a
+                href={`https://wa.me/91${nagarajuFarmData.contact.phone}?text=Hi%20DS%20Marcom%2C%20I%20am%20interested%20in%20Nagaraju%20Farm%20Land.`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs tracking-wide transition-colors"
+              >
+                <MessageSquare className="w-3.5 h-3.5 text-[#19B83A]" />
+                <span>WhatsApp</span>
+              </a>
+
+              <a
+                href={`mailto:${nagarajuFarmData.contact.email}`}
+                className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-800 font-semibold text-xs tracking-wide transition-colors"
+              >
+                <Mail className="w-3.5 h-3.5 text-stone-600" />
+                <span>Email Us</span>
+              </a>
+            </div>
+          </motion.div>
+
+          {/* Channel 3: Official Contact Page */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="p-6 sm:p-8 rounded-3xl bg-white border border-stone-200 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between"
+          >
+            <div className="space-y-3">
+              <div className="w-12 h-12 rounded-2xl bg-[#063B20] text-emerald-400 flex items-center justify-center">
+                <Building2 className="w-6 h-6 text-[#19B83A]" />
+              </div>
+              <span className="text-[10px] font-bold uppercase tracking-wider text-stone-500 block">
+                Central Inquiry Desk
+              </span>
+              <h3 className="text-lg font-bold text-stone-900">
+                Official Contact Page
+              </h3>
+              <p className="text-xs text-stone-600 leading-relaxed">
+                Prefer to submit a consultation request through our main inquiry desk? Access our central contact form.
+              </p>
+            </div>
+
+            <div className="pt-6 mt-6 border-t border-stone-100">
+              <Link
+                href="/contact"
+                className="w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-[#063B20] hover:bg-[#084d2a] text-white font-bold text-xs uppercase tracking-wider transition-colors"
+              >
+                <span>Go to Contact Page</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Location & Office Details Banner */}
+        <div className="p-6 sm:p-8 rounded-3xl bg-white border border-stone-200/90 shadow-sm grid grid-cols-1 md:grid-cols-3 gap-6 text-xs">
+          <div className="space-y-1.5">
+            <span className="text-[10px] font-bold uppercase tracking-wider text-[#19B83A] block">
+              Project Site Location
+            </span>
+            <p className="font-semibold text-stone-900 flex items-start gap-1.5">
+              <MapPin className="w-4 h-4 text-[#19B83A] shrink-0 mt-0.5" />
+              <span>{nagarajuFarmData.contact.projectSiteAddress}</span>
+            </p>
+            <p className="text-[11px] text-stone-500">
+              Direct access via Thippuru road network near Kumbalagudu.
+            </p>
           </div>
 
-          {/* Right Column: Project Enquiry Form */}
-          <div className="lg:col-span-7 p-8 sm:p-12 flex flex-col justify-center">
-            <div className="mb-6 space-y-1.5">
-              <span className="text-[11px] font-bold uppercase tracking-[0.28em] text-[#063B20] block">
-                DIRECT INQUIRY DESK
-              </span>
-              <h2 className="text-2xl sm:text-3xl font-black text-[#0B0D0C] tracking-tight">
-                Explore Nagaraju Farm Land
-              </h2>
-              <p className="text-xs sm:text-sm text-stone-500">
-                Submit your details to request the latest site demarcations, availability status, or schedule an on-ground visit.
-              </p>
-            </div>
+          <div className="space-y-1.5">
+            <span className="text-[10px] font-bold uppercase tracking-wider text-stone-500 block">
+              Registered Corporate Office
+            </span>
+            <p className="font-semibold text-stone-900 flex items-start gap-1.5">
+              <Building2 className="w-4 h-4 text-[#063B20] shrink-0 mt-0.5" />
+              <span>{nagarajuFarmData.contact.officeAddress}</span>
+            </p>
+          </div>
 
-            {isSubmitted ? (
-              <div className="p-8 rounded-2xl bg-emerald-50 border border-emerald-200 text-center space-y-3 animate-fadeIn">
-                <div className="w-12 h-12 rounded-full bg-[#19B83A] text-white flex items-center justify-center mx-auto shadow-md">
-                  <CheckCircle2 className="w-6 h-6" />
-                </div>
-                <h4 className="text-lg font-bold text-emerald-950">
-                  Enquiry Received for Nagaraju Farm Land
-                </h4>
-                <p className="text-xs sm:text-sm text-emerald-800 max-w-md mx-auto leading-relaxed">
-                  Thank you, <strong>{formState.name}</strong>. A DS Marcom property advisor will reach out to you at <strong>{formState.phone}</strong> with the current plot availability sheet and directions.
-                </p>
-                <div className="pt-2">
-                  <a
-                    href={`tel:${nagarajuFarmData.contact.phone}`}
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-900 text-white font-bold text-xs uppercase tracking-wider"
-                  >
-                    <Phone className="w-3.5 h-3.5 text-[#19B83A]" />
-                    <span>Call Directly: {nagarajuFarmData.contact.phoneDisplay}</span>
-                  </a>
-                </div>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="space-y-1">
-                    <label className="text-[11px] font-bold uppercase tracking-wider text-stone-700 block">
-                      Full Name *
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      placeholder="Your name"
-                      value={formState.name}
-                      onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-[#F7F8F5] border border-stone-200 text-stone-900 text-sm focus:outline-none focus:border-[#19B83A] focus:bg-white transition-all"
-                    />
-                  </div>
-
-                  <div className="space-y-1">
-                    <label className="text-[11px] font-bold uppercase tracking-wider text-stone-700 block">
-                      Phone Number *
-                    </label>
-                    <input
-                      type="tel"
-                      required
-                      placeholder="+91 98765 43210"
-                      value={formState.phone}
-                      onChange={(e) => setFormState({ ...formState, phone: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-[#F7F8F5] border border-stone-200 text-stone-900 text-sm focus:outline-none focus:border-[#19B83A] focus:bg-white transition-all"
-                    />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="space-y-1">
-                    <label className="text-[11px] font-bold uppercase tracking-wider text-stone-700 block">
-                      Email Address
-                    </label>
-                    <input
-                      type="email"
-                      placeholder="name@example.com"
-                      value={formState.email}
-                      onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-[#F7F8F5] border border-stone-200 text-stone-900 text-sm focus:outline-none focus:border-[#19B83A] focus:bg-white transition-all"
-                    />
-                  </div>
-
-                  <div className="space-y-1">
-                    <label className="text-[11px] font-bold uppercase tracking-wider text-stone-700 block">
-                      Plot Size Preference
-                    </label>
-                    <select
-                      value={formState.plotPreference}
-                      onChange={(e) => setFormState({ ...formState, plotPreference: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-[#F7F8F5] border border-stone-200 text-stone-900 text-sm focus:outline-none focus:border-[#19B83A] focus:bg-white transition-all"
-                    >
-                      <option value="5,000 sq ft">5,000 sq ft (Farm Plot)</option>
-                      <option value="6,000 sq ft">6,000 sq ft (Villa Plot)</option>
-                      <option value="Flexible / Multiple">Flexible / Multiple Plots</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div className="space-y-1">
-                  <label className="text-[11px] font-bold uppercase tracking-wider text-stone-700 block">
-                    Message / Inquiry Scope
-                  </label>
-                  <textarea
-                    rows={3}
-                    value={formState.message}
-                    onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-[#F7F8F5] border border-stone-200 text-stone-900 text-sm focus:outline-none focus:border-[#19B83A] focus:bg-white transition-all resize-none"
-                  />
-                </div>
-
-                <div className="pt-2 flex flex-col sm:flex-row items-center gap-3">
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full sm:w-auto flex-1 inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-[#19B83A] hover:bg-[#159A30] text-white font-bold text-xs uppercase tracking-wider transition-all duration-300 shadow-md shadow-[#19B83A]/25 hover:shadow-lg active:scale-95 cursor-pointer"
-                  >
-                    <Send className="w-3.5 h-3.5" />
-                    <span>{isSubmitting ? "Submitting..." : "Submit Project Inquiry"}</span>
-                  </button>
-
-                  <a
-                    href={`tel:${nagarajuFarmData.contact.phone}`}
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs uppercase tracking-wider transition-colors shrink-0"
-                  >
-                    <Phone className="w-3.5 h-3.5 text-[#19B83A]" />
-                    <span>Call 9606342643</span>
-                  </a>
-                </div>
-              </form>
-            )}
+          <div className="space-y-1.5">
+            <span className="text-[10px] font-bold uppercase tracking-wider text-stone-500 block">
+              Advisory Office Hours
+            </span>
+            <p className="font-semibold text-stone-900 flex items-start gap-1.5">
+              <Clock className="w-4 h-4 text-[#063B20] shrink-0 mt-0.5" />
+              <span>Monday – Saturday: 9:30 AM – 6:30 PM</span>
+            </p>
+            <p className="text-[11px] text-stone-500">
+              Sunday site visits arranged by prior appointment.
+            </p>
           </div>
         </div>
       </div>

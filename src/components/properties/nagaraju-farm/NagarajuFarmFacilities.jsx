@@ -17,21 +17,16 @@ export default function NagarajuFarmFacilities() {
   const [activeFacility, setActiveFacility] = useState(nagarajuFarmData.facilities[2]); // Default to Entrance Arch
 
   return (
-    <section className="relative py-20 sm:py-28 bg-white text-[#0B0D0C] border-y border-stone-200/80 overflow-hidden">
+    <section className="relative pt-10 sm:pt-14 pb-16 sm:pb-24 bg-white text-[#0B0D0C] border-y border-stone-200/80 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-16">
-          <div className="max-w-2xl space-y-2">
-            <span className="text-[11px] font-bold uppercase tracking-[0.28em] text-[#063B20] block">
-              INFRASTRUCTURE &amp; FACILITIES
-            </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#0B0D0C] tracking-tight">
-              Physically Built on Ground.
-            </h2>
-          </div>
-          <p className="text-xs sm:text-sm text-stone-500 max-w-md leading-relaxed">
-            Every listed facility is visibly completed on site at Nagaraju Farm Land. Verified through authentic on-ground inspection photography.
-          </p>
+        <div className="space-y-2 mb-8 sm:mb-10">
+          <span className="text-[11px] font-bold uppercase tracking-[0.28em] text-[#063B20] block">
+            INFRASTRUCTURE &amp; FACILITIES
+          </span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#0B0D0C] tracking-tight">
+            Physically Built on Ground.
+          </h2>
         </div>
 
         {/* Distinctive Horizontal Composition */}

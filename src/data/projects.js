@@ -97,6 +97,99 @@ export const projects = [
     ],
   },
   {
+    slug: "chamundeshwari-residency",
+    name: "Chamundeshwari Residency",
+    tagline: "Planned residential villa plots in Nelamangala near Kunigal Toll.",
+    status: "Ready for construction",
+    category: "Residential Villa Plots",
+    featured: true,
+    location: "Nelamangala, near Kunigal Toll, Bengaluru, Karnataka",
+    region: "Nelamangala / Kunigal Toll",
+    plotSize: "30 × 40 ft, 30 × 50 ft & other dimensions",
+    shortDescription:
+      "Residential villa plots in Nelamangala near Kunigal Toll, Bengaluru. Planned with wide cement concrete roads, underground drainage, water connection, street lights, and underground electricity.",
+    description:
+      "Chamundeshwari Residency offers prime residential plots designed for luxury villas in Nelamangala, located near Kunigal Toll. The project is ready for construction with verified on-ground infrastructure including wide cement roads, underground drainage, water and sanitary connections, street lighting, and immediate registration capabilities.",
+    
+    highlights: [
+      {
+        title: "Ready for Construction",
+        description: "Project records confirm sites are ready for construction.",
+      },
+      {
+        title: "30×40 & 30×50 Ft Villa Plots",
+        description: "Demarcated residential parcels suited for luxury private villas.",
+      },
+      {
+        title: "Wide Cement Concrete Roads",
+        description: "Paved cement concrete avenues installed across the layout.",
+      },
+      {
+        title: "Underground Drainage & Electricity",
+        description: "Subterranean drainage and underground electrical cabling infrastructure.",
+      },
+      {
+        title: "Water & Sanitary Connection",
+        description: "Dedicated water and sanitary connections provided at site.",
+      },
+      {
+        title: "Immediate Registration Available",
+        description: "Immediate registration available, subject to current confirmation.",
+      },
+    ],
+
+    faq: [
+      {
+        question: "Where is Chamundeshwari Residency located?",
+        answer: "Nelamangala, near Kunigal Toll, Bengaluru, Karnataka.",
+      },
+      {
+        question: "What plot dimensions are available?",
+        answer: "30 × 40 ft, 30 × 50 ft, and other dimensions subject to availability.",
+      },
+      {
+        question: "What infrastructure is completed on site?",
+        answer: "Wide cement concrete roads, underground drainage system, water and sanitary connections, street lights, underground electrical connection, recreational gardens, and gated community.",
+      },
+      {
+        question: "What is the intended use?",
+        answer: "Residential plots suitable for luxury villas.",
+      },
+      {
+        question: "What are the nearby transit distances?",
+        answer: "Approximately 1.5 km to Nelamangala / Kunigal Toll, 5 km to Nelamangala town, and 12 km to Tavarekere.",
+      },
+    ],
+
+    heroImage: {
+      url: "/images/projects/chamundeshwari-residency/hero-avenue.jpg",
+      alt: "Chamundeshwari Residency wide concrete avenue and street lighting in Nelamangala near Kunigal Toll",
+      isPlaceholder: false,
+    },
+    gallery: [
+      {
+        url: "/images/projects/chamundeshwari-residency/sunset-avenue-lights.jpg",
+        alt: "Chamundeshwari Residency evening illumination and active street lights",
+        isPlaceholder: false,
+      },
+      {
+        url: "/images/projects/chamundeshwari-residency/entrance-avenue.jpg",
+        alt: "Chamundeshwari Residency paved access avenue",
+        isPlaceholder: false,
+      },
+      {
+        url: "/images/projects/chamundeshwari-residency/layout-infrastructure.jpg",
+        alt: "Chamundeshwari Residency on-ground utilities and demarcated curbs",
+        isPlaceholder: false,
+      },
+      {
+        url: "/images/projects/chamundeshwari-residency/vertical-paved-road.jpg",
+        alt: "Chamundeshwari Residency paved concrete avenue",
+        isPlaceholder: false,
+      },
+    ],
+  },
+  {
     slug: "crs-enclave",
     name: "CRS Enclave",
     tagline: "BMRDA approved plotted development with immediate registration & construction.",

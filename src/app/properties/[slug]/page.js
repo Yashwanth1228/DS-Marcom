@@ -9,6 +9,7 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import { projects, getProjectBySlug, getAllProjectSlugs } from "@/data/projects";
 import { siteConfig } from "@/data/site";
 import NagarajuFarmProjectPage from "@/components/properties/nagaraju-farm/NagarajuFarmProjectPage";
+import ChamundeshwariProjectPage from "@/components/properties/chamundeshwari-residency/ChamundeshwariProjectPage";
 
 export function generateStaticParams() {
   return getAllProjectSlugs().map((slug) => ({
@@ -45,6 +46,25 @@ export async function generateMetadata({ params }) {
     };
   }
 
+  if (slug === "chamundeshwari-residency") {
+    return {
+      title: "Chamundeshwari Residency | Residential Villa Plots in Nelamangala | DS MARCOM",
+      description:
+        "Chamundeshwari Residency in Nelamangala, near Kunigal Toll, Bengaluru. 30×40 & 30×50 residential villa plots ready for construction with wide cement roads, underground drainage, and utilities.",
+      openGraph: {
+        title: "Chamundeshwari Residency | DS MARCOM Properties & Promoters",
+        description:
+          "Planned residential villa plots in Nelamangala near Kunigal Toll. Complete on-ground infrastructure and immediate registration.",
+        images: [
+          {
+            url: "/images/projects/chamundeshwari-residency/hero-avenue.jpg",
+            alt: "Chamundeshwari Residency in Nelamangala, near Kunigal Toll",
+          },
+        ],
+      },
+    };
+  }
+
   return {
     title: `${project.name} | DS MARCOM`,
     description: project.shortDescription,
@@ -72,6 +92,11 @@ export default async function ProjectDetailPage({ params }) {
   // Bespoke Editorial Showcase for Nagaraju Farm Land
   if (slug === "nagaraju-farm") {
     return <NagarajuFarmProjectPage />;
+  }
+
+  // Bespoke Editorial Showcase for Chamundeshwari Residency
+  if (slug === "chamundeshwari-residency") {
+    return <ChamundeshwariProjectPage />;
   }
 
   return (

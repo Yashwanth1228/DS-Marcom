@@ -7,10 +7,10 @@ import { nagarajuFarmData } from "@/data/nagarajuFarmData";
 
 export default function NagarajuFarmOverview() {
   return (
-    <section id="overview" className="relative py-20 sm:py-28 lg:py-32 bg-[#F7F8F5] text-[#0B0D0C] overflow-hidden">
+    <section id="overview" className="relative pt-10 sm:pt-14 lg:pt-16 pb-16 sm:pb-20 lg:pb-24 bg-[#F7F8F5] text-[#0B0D0C] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
         {/* Section Header */}
-        <div className="mb-12 sm:mb-16">
+        <div className="mb-8 sm:mb-10">
           <span className="text-[11px] font-bold uppercase tracking-[0.28em] text-[#063B20] block mb-2">
             PROJECT OVERVIEW
           </span>
@@ -18,16 +18,16 @@ export default function NagarajuFarmOverview() {
         </div>
 
         {/* Editorial Two-Part Composition */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-stretch">
           {/* Left Side: Real Project Photograph with Architectural Crop */}
           <motion.div
             initial={{ opacity: 0, x: -24 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-6 relative"
+            className="lg:col-span-6 relative flex flex-col h-full"
           >
-            <div className="relative aspect-[4/3] sm:aspect-[16/11] rounded-3xl overflow-hidden bg-slate-900 shadow-xl border border-stone-200">
+            <div className="relative w-full h-full min-h-[380px] sm:min-h-[460px] lg:min-h-full rounded-3xl overflow-hidden bg-slate-900 shadow-xl border border-stone-200 flex-1">
               <Image
                 src={nagarajuFarmData.images.roadAndCompound.url}
                 alt={nagarajuFarmData.images.roadAndCompound.alt}
@@ -56,7 +56,7 @@ export default function NagarajuFarmOverview() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-6 space-y-6 sm:space-y-8"
+            className="lg:col-span-6 flex flex-col justify-between space-y-6 sm:space-y-8 h-full"
           >
             <div>
               <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black text-[#0B0D0C] tracking-tight leading-[1.1] mb-5">

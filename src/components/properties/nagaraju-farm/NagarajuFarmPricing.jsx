@@ -8,19 +8,10 @@ import {
   Route,
   Zap,
   ShieldCheck,
-  ArrowRight,
-  Phone,
-  Info,
 } from "lucide-react";
 import { nagarajuFarmData } from "@/data/nagarajuFarmData";
 
 export default function NagarajuFarmPricing() {
-  const scrollToEnquiry = () => {
-    const el = document.getElementById("enquire");
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
-    }
-  };
 
   const specifications = [
     {
@@ -80,21 +71,16 @@ export default function NagarajuFarmPricing() {
   ];
 
   return (
-    <section className="relative py-16 sm:py-20 lg:py-24 bg-white text-[#0B0D0C] border-t border-stone-200/90 overflow-hidden">
+    <section className="relative pt-10 sm:pt-12 lg:pt-14 pb-14 sm:pb-16 lg:pb-20 bg-white text-[#0B0D0C] border-t border-stone-200/90 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-16">
-          <div className="max-w-2xl space-y-2">
-            <span className="text-[11px] font-bold uppercase tracking-[0.28em] text-[#063B20] block">
-              PROJECT SPECIFICATIONS &amp; HIGHLIGHTS
-            </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#0B0D0C] tracking-tight">
-              Verified Property Parameters.
-            </h2>
-          </div>
-          <p className="text-xs sm:text-sm text-stone-500 max-w-md leading-relaxed">
-            Every specification below reflects verified on-ground disclosures from physical site documentation at Nagaraju Farm Land.
-          </p>
+        <div className="space-y-2 mb-8 sm:mb-10">
+          <span className="text-[11px] font-bold uppercase tracking-[0.28em] text-[#063B20] block">
+            PROJECT SPECIFICATIONS &amp; HIGHLIGHTS
+          </span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#0B0D0C] tracking-tight">
+            Verified Property Parameters.
+          </h2>
         </div>
 
         {/* Proportionate 3x2 Grid of Verified Specification Cards */}
@@ -141,40 +127,6 @@ export default function NagarajuFarmPricing() {
               </motion.div>
             );
           })}
-        </div>
-
-        {/* Refined Bottom Advisory Action Card */}
-        <div className="mt-10 sm:mt-12 p-6 sm:p-8 rounded-3xl bg-[#063B20] text-white flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl">
-          <div className="space-y-1.5 text-center md:text-left max-w-xl">
-            <span className="text-[10px] font-bold uppercase tracking-widest text-emerald-300">
-              PHYSICAL SITE INSPECTION
-            </span>
-            <h4 className="text-base sm:text-lg font-bold text-white">
-              Request Master Layout Demarcations or Schedule a Site Visit
-            </h4>
-            <p className="text-xs text-stone-300 leading-relaxed">
-              Connect with our advisory desk to review on-ground plot boundaries, access routes, and verify documentation directly.
-            </p>
-          </div>
-
-          <div className="flex items-center gap-3 shrink-0 flex-wrap justify-center">
-            <button
-              type="button"
-              onClick={scrollToEnquiry}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#19B83A] hover:bg-[#159A30] text-white font-bold text-xs uppercase tracking-wider transition-all shadow-md shadow-[#19B83A]/25 cursor-pointer"
-            >
-              <span>Enquire About Plots</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </button>
-
-            <a
-              href={`tel:${nagarajuFarmData.contact.phone}`}
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold text-xs border border-white/20 transition-colors"
-            >
-              <Phone className="w-3.5 h-3.5 text-[#19B83A]" />
-              <span>Call 9606342643</span>
-            </a>
-          </div>
         </div>
       </div>
     </section>
