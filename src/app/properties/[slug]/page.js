@@ -22,7 +22,7 @@ export async function generateMetadata({ params }) {
   const { slug } = await params;
   const project = getProjectBySlug(slug);
 
-  if (!project) {
+  if (!project || project.status === "Completed") {
     return {
       title: "Project Not Found | DS MARCOM",
     };
@@ -105,7 +105,7 @@ export default async function ProjectDetailPage({ params }) {
   const { slug } = await params;
   const project = getProjectBySlug(slug);
 
-  if (!project) {
+  if (!project || project.status === "Completed") {
     notFound();
   }
 

@@ -11,7 +11,7 @@ export const chamundeshwariData = {
   shortLocation: "Nelamangala · Near Kunigal Toll · Bengaluru",
   plotDimensions: "30 × 40 ft, 30 × 50 ft & other dimensions",
   plotSizeRange: "1,200 – 1,500+ sq ft (30×40 & 30×50 ft)",
-  status: "Ready for construction",
+  status: "Ongoing",
   registration: "Immediate registration available",
   registrationNote: "Subject to current confirmation",
   intendedUse: "Residential plots suitable for luxury villas",

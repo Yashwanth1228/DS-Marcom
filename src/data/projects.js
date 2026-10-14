@@ -9,7 +9,7 @@ export const projects = [
     slug: "nagaraju-farm",
     name: "Nagaraju Farm Land",
     tagline: "5,000–6,000 sq ft farm plots for weekend villas in Thippuru, near Kumbalagudu.",
-    status: "Ready for construction",
+    status: "Ongoing",
     category: "Weekend Villa & Farm Plots",
     featured: true,
     location: "Thippuru, near Kumbalagudu, Bengaluru, Karnataka",
@@ -100,7 +100,7 @@ export const projects = [
     slug: "chamundeshwari-residency",
     name: "Chamundeshwari Residency",
     tagline: "Planned residential villa plots in Nelamangala near Kunigal Toll.",
-    status: "Ready for construction",
+    status: "Ongoing",
     category: "Residential Villa Plots",
     featured: true,
     location: "Nelamangala, near Kunigal Toll, Bengaluru, Karnataka",
@@ -193,7 +193,7 @@ export const projects = [
     slug: "suma-residency",
     name: "Suma Residency",
     tagline: "Own A Plot. Build A Future. Premium E-Khata residential plots in Lakshmisagara, Bidadi.",
-    status: "Ready for registration & construction",
+    status: "New Project",
     category: "Premium E-Khata Villa Plots",
     featured: true,
     location: "Lakshmisagara, Bidadi, Bengaluru, Karnataka",
@@ -303,136 +303,70 @@ export const projects = [
     ],
   },
   {
-    slug: "crs-enclave",
-    name: "CRS Enclave",
-    tagline: "BMRDA approved plotted development with immediate registration & construction.",
-    status: "Active Opportunity",
-    category: "Plotted Development",
-    featured: true,
-    location: "Bengaluru, Karnataka",
+    slug: "sukurthi-layout",
+    name: "Sukurthi Layout",
+    tagline: "Completed residential layout near Big Banyan Tree, Bengaluru.",
+    status: "Completed",
+    category: "Completed Project",
+    featured: false,
+    location: "Near Big Banyan Tree, Bengaluru",
     region: "Bangalore",
-    shortDescription:
-      "A BMRDA-approved property opportunity featuring immediate registration and construction, backed by A Khata reference documentation.",
-    description:
-      "CRS Enclave is a strategically planned plotted development offering BMRDA approval, A Khata property references, and immediate registration capabilities. Geared towards prospective homeowners and astute long-term investors seeking verified residential property in high-demand Bangalore growth corridors.",
-    
-    highlights: [
-      {
-        title: "BMRDA Approved",
-        description: "Verified BMRDA approved site development.",
-      },
-      {
-        title: "A Khata Reference",
-        description: "Existing project information references A Khata documentation.",
-      },
-      {
-        title: "Immediate Registration",
-        description: "Streamlined registration procedures available for buyers.",
-      },
-      {
-        title: "Ready for Construction",
-        description: "Infrastructure prepared for immediate residential building.",
-      },
-    ],
-
-    faq: [
-      {
-        question: "What approvals apply to CRS Enclave?",
-        answer: "Existing site records describe BMRDA approval and A Khata property references.",
-      },
-      {
-        question: "Is immediate registration available?",
-        answer: "Yes, company records confirm immediate registration & construction readiness.",
-      },
-    ],
-
     heroImage: {
-      url: "/images/about/about-development.jpg",
-      alt: "BMRDA approved planned residential plotted layout in Bangalore",
+      url: "/images/projects/sukurthi-layout/hero.png",
+      alt: "Sukurthi Layout Near Big Banyan Tree Bengaluru",
       isPlaceholder: false,
     },
-    gallery: [
-      {
-        url: "/images/approach/stage1-explore-plots.jpg",
-        alt: "CRS Enclave demarcated plots and infrastructure",
-        isPlaceholder: false,
-      },
-      {
-        url: "/images/approach/stage3-document-review.jpg",
-        alt: "Legal title and survey document review",
-        isPlaceholder: false,
-      },
-      {
-        url: "/images/about/about-corridor-growth.jpg",
-        alt: "Regional highway connectivity and transit corridor",
-        isPlaceholder: false,
-      },
-    ],
+  },
+  {
+    slug: "recent-developments",
+    name: "Recent Developments",
+    tagline: "Completed plotted development at Hampapura Layout, near Wonderla, Bengaluru.",
+    status: "Completed",
+    category: "Completed Project",
+    featured: false,
+    location: "Hampapura Layout, near Wonderla, Bengaluru",
+    region: "Bangalore",
+    heroImage: {
+      url: "/images/projects/hampapura-layout/hero.png",
+      alt: "Recent Developments Hampapura Layout near Wonderla Bengaluru",
+      isPlaceholder: false,
+    },
+  },
+  {
+    slug: "crs-enclave",
+    name: "CRS Enclave",
+    tagline: "Completed plotted project by DS Marcom.",
+    status: "Completed",
+    category: "Completed Project",
+    featured: false,
+    location: "",
+    region: "",
+    heroImage: {
+      url: "/images/projects/crs-enclave/hero.png",
+      alt: "CRS Enclave",
+      isPlaceholder: false,
+    },
   },
   {
     slug: "royal-homes",
     name: "Royal Homes",
-    tagline: "Completed residential development delivered by DS Marcom.",
+    tagline: "Completed residential development by DS Marcom.",
     status: "Completed",
-    category: "Residential Development",
-    featured: true,
-    location: "Bengaluru, Karnataka",
-    region: "Bangalore",
-    shortDescription:
-      "A completed residential development reflecting DS Marcom's track record of delivery and enduring property craftsmanship in Bangalore.",
-    description:
-      "Royal Homes stands as a completed testament to DS Marcom's 6+ years of real estate expertise in Bengaluru. As one of 9 successfully completed projects, it highlights the firm's dedication to dependable execution and enduring property value.",
-    
-    highlights: [
-      {
-        title: "Completed Project",
-        description: "Fully delivered residential development by DS Marcom.",
-      },
-      {
-        title: "Track Record",
-        description: "Part of DS Marcom's 9 completed projects across Bangalore.",
-      },
-      {
-        title: "Trusted Execution",
-        description: "Built with transparent documentation and client satisfaction.",
-      },
-    ],
-
-    faq: [
-      {
-        question: "What is the status of Royal Homes?",
-        answer: "Royal Homes is a completed residential project delivered by DS Marcom.",
-      },
-    ],
-
+    category: "Completed Project",
+    featured: false,
+    location: "",
+    region: "",
     heroImage: {
       url: "/images/about/about-overview-exterior.jpg",
-      alt: "Completed residential villa architecture delivered by DS Marcom",
+      alt: "Royal Homes",
       isPlaceholder: false,
     },
-    gallery: [
-      {
-        url: "/images/about/about-overview-interior.jpg",
-        alt: "Residential living spaces and curated interiors",
-        isPlaceholder: false,
-      },
-      {
-        url: "/images/about/about-team.jpg",
-        alt: "Advisory client satisfaction and delivery",
-        isPlaceholder: false,
-      },
-      {
-        url: "/images/about/about-development.jpg",
-        alt: "Delivered residential enclave environment",
-        isPlaceholder: false,
-      },
-    ],
   },
   {
     slug: "dasanapura-nelamangala-development",
     name: "Bangalore North Opportunity",
     tagline: "Strategic property location in Bethanagere, Dasanapura Hobli, Nelamangala.",
-    status: "Strategic Location",
+    status: "New Project",
     category: "Plotted Development",
     featured: false,
     location: "Bethanagere, Dasanapura Hobli, Nelamangala, Bangalore North Taluk",
@@ -492,7 +426,7 @@ export function getProjectBySlug(slug) {
 }
 
 export function getAllProjectSlugs() {
-  return projects.map((project) => project.slug);
+  return projects.filter((project) => project.status !== "Completed").map((project) => project.slug);
 }
 
 export function getFeaturedProjects() {

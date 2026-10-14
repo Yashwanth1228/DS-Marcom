@@ -183,33 +183,27 @@ export default function Footer() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/properties/crs-enclave" className="group block">
+                  <Link href="/properties" className="group block">
                     <div className="flex items-center justify-between">
                       <span className="text-[#1E293B] group-hover:text-[#063B20] group-hover:font-medium transition-colors">
                         CRS Enclave
                       </span>
-                      <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-[#19B83A]/10 text-[#063B20] border border-[#19B83A]/25">
-                        BMRDA Plots
+                      <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-slate-100 text-slate-700 border border-slate-200">
+                        Completed
                       </span>
                     </div>
-                    <span className="block text-xs text-[#64748B] mt-0.5">
-                      Gated Plotted Layout
-                    </span>
                   </Link>
                 </li>
                 <li>
-                  <Link href="/properties/royal-homes" className="group block">
+                  <Link href="/properties" className="group block">
                     <div className="flex items-center justify-between">
                       <span className="text-[#1E293B] group-hover:text-[#063B20] group-hover:font-medium transition-colors">
                         Royal Homes
                       </span>
                       <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-slate-100 text-slate-700 border border-slate-200">
-                        Delivered
+                        Completed
                       </span>
                     </div>
-                    <span className="block text-xs text-[#64748B] mt-0.5">
-                      Residential Community
-                    </span>
                   </Link>
                 </li>
               </ul>

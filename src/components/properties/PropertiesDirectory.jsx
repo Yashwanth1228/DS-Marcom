@@ -7,18 +7,15 @@ import {
   MapPin,
   ArrowRight,
   Building2,
-  CheckCircle2,
-  FileText,
   Images,
-  Compass,
 } from "lucide-react";
 import { projects } from "@/data/projects";
 
 const filterTabs = [
   { id: "all", label: "All Properties" },
-  { id: "plots", label: "Residential Villa Plots" },
-  { id: "bmrda", label: "BMRDA Approved" },
-  { id: "completed", label: "Completed Projects" },
+  { id: "new", label: "New Project" },
+  { id: "ongoing", label: "Ongoing Project" },
+  { id: "completed", label: "Completed Project" },
 ];
 
 export default function PropertiesDirectory() {
@@ -26,20 +23,15 @@ export default function PropertiesDirectory() {
 
   const filteredProjects = projects.filter((project) => {
     if (activeFilter === "all") return true;
-    if (activeFilter === "plots") {
-      return (
-        project.category.toLowerCase().includes("plot") ||
-        project.category.toLowerCase().includes("villa")
-      );
+    const s = (project.status || "").toLowerCase();
+    if (activeFilter === "new") {
+      return s.includes("new");
     }
-    if (activeFilter === "bmrda") {
-      return (
-        project.name.toLowerCase().includes("crs") ||
-        project.highlights.some((h) => h.title.toLowerCase().includes("bmrda"))
-      );
+    if (activeFilter === "ongoing") {
+      return s.includes("ongoing");
     }
     if (activeFilter === "completed") {
-      return project.status.toLowerCase() === "completed";
+      return s.includes("completed") || s.includes("delivered");
     }
     return true;
   });
@@ -87,10 +79,56 @@ export default function PropertiesDirectory() {
       </div>
 
       {/* Property Cards Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 sm:gap-10">
-        {filteredProjects.map((project) => (
-          <article
-            key={project.slug}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10">
+        {filteredProjects.map((project) => {
+          const isCompleted = project.status === "Completed";
+
+          if (isCompleted) {
+            return (
+              <article
+                key={project.slug}
+                className="group bg-white rounded-2xl sm:rounded-3xl border border-slate-200/90 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+              >
+                {/* Card Top: Real Photography with Subtle "Completed" Badge */}
+                <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-900">
+                  <Image
+                    src={project.heroImage.url}
+                    alt={project.heroImage.alt || project.name}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
+                    className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-106"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-950/15 to-transparent" />
+
+                  {/* Subtle "Completed" Badge Over the Image */}
+                  <div className="absolute top-4 left-4 z-10">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900/85 backdrop-blur-md text-white text-[11px] font-bold border border-white/10 shadow-sm">
+                      <span className="w-2 h-2 rounded-full bg-emerald-400" />
+                      Completed
+                    </span>
+                  </div>
+                </div>
+
+                {/* Card Body: Project Name & Confirmed Location (where available) */}
+                <div className="p-6 sm:p-7 flex-1 flex flex-col justify-start space-y-2">
+                  <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-slate-900">
+                    {project.name}
+                  </h3>
+
+                  {project.location ? (
+                    <div className="flex items-center gap-1.5 text-xs text-slate-500 font-medium pt-0.5">
+                      <MapPin className="w-3.5 h-3.5 text-[#19B83A] shrink-0" />
+                      <span>{project.location}</span>
+                    </div>
+                  ) : null}
+                </div>
+              </article>
+            );
+          }
+
+          return (
+            <article
+              key={project.slug}
             className="group bg-white rounded-2xl sm:rounded-3xl border border-slate-200/90 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
           >
             {/* Card Top: Real Photography */}
@@ -104,16 +142,11 @@ export default function PropertiesDirectory() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/15 to-transparent" />
 
-              {/* Status and Verification Badges */}
-              <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
+              {/* Status Badge */}
+              <div className="absolute top-4 left-4 z-10">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900/85 backdrop-blur-md text-white text-[11px] font-bold border border-white/10 shadow-sm">
-                  <Building2 className="w-3 h-3 text-[#19B83A]" />
+                  <span className={`w-2 h-2 rounded-full ${project.status.toLowerCase().includes("new") ? "bg-[#19B83A] animate-pulse" : "bg-[#19B83A]"}`} />
                   {project.status}
-                </span>
-
-                <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-emerald-500/90 backdrop-blur-md text-white text-[10px] font-bold uppercase tracking-wider shadow-sm">
-                  <CheckCircle2 className="w-3 h-3" />
-                  Verified
                 </span>
               </div>
 
@@ -174,7 +207,8 @@ export default function PropertiesDirectory() {
               </div>
             </div>
           </article>
-        ))}
+        );
+      })}
       </div>
     </div>
   );

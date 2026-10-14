@@ -37,7 +37,7 @@ export default function AboutPortfoliosShowcase() {
         "Wide Asphalt Avenue Roads",
         "Immediate Construction Ready",
       ],
-      href: "/properties/crs-enclave",
+      href: "/properties",
       linkText: "Explore Plotted Layouts",
     },
     {
@@ -59,7 +59,7 @@ export default function AboutPortfoliosShowcase() {
         "Curated Architectural Specifications",
         "Direct Arterial Connectivity",
       ],
-      href: "/properties/royal-homes",
+      href: "/properties",
       linkText: "Explore Developments",
     },
     {

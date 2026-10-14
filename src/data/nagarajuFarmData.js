@@ -10,7 +10,7 @@ export const nagarajuFarmData = {
   location: "Thippuru, near Kumbalagudu, Bengaluru, Karnataka",
   shortLocation: "Thippuru · Near Kumbalagudu · Bengaluru",
   plotSizeRange: "5,000 – 6,000 sq ft",
-  status: "Ready for construction",
+  status: "Ongoing",
   registration: "Immediate registration available",
   registrationNote: "Subject to current confirmation",
   intendedUse: [

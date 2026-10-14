@@ -11,7 +11,7 @@ export const sumaResidencyData = {
   shortLocation: "Lakshmisagara · Bidadi · Bengaluru",
   plotDimensions: "30 × 40 ft, 30 × 50 ft & 40 × 60 ft",
   plotSizeRange: "1,200, 1,500 & 2,400 sq ft (30×40, 30×50 & 40×60)",
-  status: "Ready for registration and construction",
+  status: "New Project",
   approvalType: "Premium E-Khata Residential Plots",
   registration: "Immediate registration and construction ready",
   registrationNote: "Subject to current client confirmation",
